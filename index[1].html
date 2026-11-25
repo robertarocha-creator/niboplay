@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nibo Play · Curso gratuito de IA para contadores</title>
+<meta name="description" content="Aprenda a usar IA no seu escritório contábil com aulas curtas, de contador para contador: Claude, ChatGPT e o MCP do Nibo em tarefas reais de cada setor.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Nibo Play">
+<meta property="og:title" content="Nibo Play · Curso gratuito de IA para contadores">
+<meta property="og:description" content="Aprenda a usar IA no seu escritório contábil com aulas curtas, de contador para contador: Claude, ChatGPT e o MCP do Nibo em tarefas reais de cada setor.">
+<meta property="og:image" content="/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#021E49">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0072CE}a:hover{color:#002D72}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.np-h1{width:auto !important;max-width:600px;font-size:clamp(40px,4.8vw,66px) !important;text-wrap:balance}
+.np-hero-row{display:flex;flex-wrap:nowrap;gap:32px;align-items:center}
+.np-mock{flex:1 1 560px;min-width:0;display:flex;justify-content:flex-end;align-self:flex-end;margin-bottom:-64px}
+.np-mock img{display:block;width:100%;max-width:680px;height:auto}
+@media (min-width:980px){.np-hero{overflow:hidden}.np-mock img{max-width:none;width:116%;margin-right:-8%}}
+.np-mock-x{display:none}
+.np-mock-x::before{content:'';position:absolute;left:8%;right:4%;top:14%;bottom:10%;background:radial-gradient(closest-side,rgba(100,49,226,.55),rgba(100,49,226,0));filter:blur(20px);z-index:0}
+.np-lap{position:relative;z-index:1}
+.np-lid{position:relative;padding:11px 11px 13px;border-radius:18px 18px 4px 4px;background:linear-gradient(180deg,#1b2233 0%,#0a0f1c 100%);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.np-cam{position:absolute;left:50%;top:4px;width:4px;height:4px;margin-left:-2px;border-radius:999px;background:#2a3346}
+.np-scr{position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#010F27;font-family:Poppins,system-ui,sans-serif}
+.np-scr::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.np-base{position:relative;height:13px;margin:0 -9%;border-radius:2px 2px 16px 16px;background:linear-gradient(180deg,#d9dfeb 0%,#a9b3c6 55%,#7d879b 100%);box-shadow:0 26px 40px -12px rgba(0,0,0,.65)}
+.np-base::before{content:'';position:absolute;left:50%;top:0;width:16%;height:5px;margin-left:-8%;border-radius:0 0 8px 8px;background:#8c96aa}
+.np-app-hero{position:relative;height:58%;overflow:hidden}
+.np-app-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.np-app-hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(1,15,39,.97) 0%,rgba(1,15,39,.82) 40%,rgba(1,15,39,.25) 72%,rgba(1,15,39,.4) 100%),linear-gradient(180deg,rgba(1,15,39,0) 60%,#010F27 100%)}
+.np-app-nav{position:absolute;left:0;right:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:7px 4%;font-size:6.5px;color:#C9D6EC}
+.np-app-in{position:absolute;left:4%;bottom:12%;width:50%;z-index:2;display:flex;flex-direction:column;gap:5px}
+.np-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:0 4%;margin-top:-5%;position:relative;z-index:2}
+.np-c{position:relative;display:flex;align-items:flex-end}
+.np-n{font-weight:800;font-size:40px;line-height:.78;letter-spacing:-3px;color:#010F27;-webkit-text-stroke:1.2px #5B6F96;margin-right:-11px;flex:0 0 auto}
+.np-t{position:relative;flex:1 1 auto;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#0B1C3E;box-shadow:0 5px 12px rgba(0,0,0,.5)}
+.np-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.np-t::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,39,0) 45%,rgba(1,15,39,.95) 92%)}
+.np-tl{position:absolute;left:5px;bottom:4px;z-index:1;font-size:7.5px;font-weight:700;color:#FFFFFF}
+.np-t-on{outline:1.5px solid #FFE800;outline-offset:1px;transform:scale(1.06)}
+.np-phone{position:absolute;right:0;bottom:6px;z-index:3;width:31%;max-width:168px;aspect-ratio:9/19;box-sizing:border-box;padding:5px;border-radius:26px;background:linear-gradient(160deg,#2a3346 0%,#0a0f1c 60%);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 60px rgba(0,8,30,.65),-10px 0 30px rgba(0,8,30,.35)}
+.np-ph{position:relative;height:100%;border-radius:21px;overflow:hidden;background:#021E49;display:flex;flex-direction:column;gap:6px;padding:20px 8px 8px;box-sizing:border-box;font-family:Poppins,system-ui,sans-serif}
+.np-ph::before{content:'';position:absolute;left:50%;top:6px;width:34%;height:9px;margin-left:-17%;border-radius:999px;background:#0a0f1c}
+.np-pv{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:url(/assets/cont-player.jpg) center / cover no-repeat}
+.np-pv::after{content:'';position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:999px;background:rgba(255,255,255,.92)}
+.np-line{height:4px;border-radius:999px;background:rgba(255,255,255,.14)}
+.np-float{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 9px;border-radius:14px;background:rgba(255,255,255,.96);color:#002D72;box-shadow:0 18px 40px rgba(0,8,30,.45);font-size:12px;font-weight:600;line-height:1.3}
+.np-float-ic{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FFE800;flex:0 0 auto}
+.np-ins-col{position:relative;z-index:1}
+.ls-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding-top:12px}
+.ls-top{display:flex;align-items:flex-end;min-width:0}
+.ls-num{flex:0 0 auto;font-weight:800;font-size:128px;line-height:.78;letter-spacing:-8px;color:transparent;-webkit-text-stroke:2.5px rgba(159,179,214,.55);margin-right:-26px;width:.6em;text-align:center;user-select:none}
+.ls-card{position:relative;z-index:1;flex:1 1 auto;min-width:0;display:block;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#0B1C3E;box-shadow:0 14px 34px rgba(0,8,30,.45);text-decoration:none;color:#FFFFFF;transition:transform .3s ease}
+.ls-card:hover{color:#FFFFFF;transform:translateY(-6px) scale(1.03)}
+.ls-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.ls-card .ls-prev{opacity:0;transition:opacity .35s ease}
+.ls-card:hover .ls-prev{opacity:1}
+.ls-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,39,0) 38%,rgba(1,15,39,.95) 90%)}
+.ls-info{position:absolute;z-index:1;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px}
+.ls-k{font-size:11px;font-weight:600;letter-spacing:1.3px;color:#DCE7F7}
+.ls-s{font-size:24px;font-weight:700;letter-spacing:-.4px}
+.ls-t{font-size:13px;font-weight:600;line-height:1.3}
+.ls-new{position:absolute;z-index:2;right:12px;top:12px;padding:4px 10px;border-radius:999px;background:#FFE800;color:#002D72;font-size:11px;font-weight:700;letter-spacing:1px}
+.ls-pl{position:absolute;z-index:2;left:12px;top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 8px;border-radius:999px;background:rgba(1,15,39,.6);font-size:11px;font-weight:600}
+.ls-lock{background:linear-gradient(135deg,#1C2A8A 0%,#0B1C3E 100%);cursor:default}
+.ls-lock:hover{transform:none}
+@media (max-width:1100px){.ls-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:8px}.ls-top{flex:0 0 230px;scroll-snap-align:start}}
+@media (prefers-reduced-motion:reduce){.ls-card,.ls-card .ls-prev{transition:none}.ls-prev{display:none}}
+@media (max-width:720px){
+  section:not(#inscricao){padding-top:64px !important;padding-bottom:64px !important}
+  h2 br,p br{display:none}
+  .np-hero nav{flex-wrap:nowrap !important}
+  .np-hero nav a{min-height:38px !important;padding:0 14px !important;font-size:13px !important;white-space:nowrap}
+  .np-stats{grid-template-columns:1fr 1fr !important;gap:16px !important}
+  .np-stats > div{width:auto !important}
+  .np-stats > div > span:nth-child(2){font-size:44px !important}
+  .np-cgrid{grid-template-columns:1fr 1fr !important;gap:12px !important}
+  .np-cgrid > div{padding:18px !important;gap:10px !important;border-radius:16px !important}
+  .np-cgrid > div > span{width:40px !important;height:40px !important;border-radius:11px !important}
+  .np-cgrid h3{font-size:16px !important}
+  .np-cgrid p{font-size:13.5px !important;line-height:1.5 !important}
+  .ls-top{flex-basis:200px !important}
+  .ls-num{font-size:104px !important;margin-right:-22px !important}
+}
+@media (max-width:1199px){.np-h1{max-width:520px}.np-hero-col{flex-basis:440px !important}}
+@media (max-width:979px){.np-hero-row{flex-wrap:wrap}.np-mock{justify-content:center}.np-ins{background:url("/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg") center bottom / auto 400px no-repeat,#021E49 !important}.np-ins > div{padding-bottom:420px !important}}
+</style>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div id="root">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: rgb(0, 45, 114); width: 100%; overflow: hidden;">
+
+
+
+
+
+
+
+
+<header class="np-hero" style="background: radial-gradient(1000px 740px at 92% -80px, rgba(100, 49, 226, 0.55) 0%, rgba(100, 49, 226, 0.14) 50%, rgba(100, 49, 226, 0) 78%), radial-gradient(860px 700px at 0% 100%, rgba(0, 114, 206, 0.3) 0%, rgba(0, 114, 206, 0) 72%), rgb(2, 30, 73); color: rgb(255, 255, 255); padding: 0px 24px;">
+  <nav style="max-width: 1200px; margin: 0px auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0px;">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="98" height="24" style="display: block; flex: 0 0 auto;"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.91,71.90 292.05,71.23Z"></path></svg>
+      <span style="width: 1px; height: 22px; background: rgba(255, 255, 255, 0.4);"></span>
+      <span style="font-weight: 500;">Play</span>
+    </div>
+    <a href="/plataforma" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0px 22px; border-radius: 999px; color: rgb(0, 45, 114); text-decoration: none; font-size: 14px; font-weight: 600; border: 0px; background: rgb(255, 232, 0);">Entrar na plataforma</a>
+  </nav>
+
+  <div class="np-hero-row" style="max-width: 1200px; margin: 0px auto; padding: 24px 0px 64px;">
+    <div class="np-hero-col" style="flex: 1 1 520px; min-width: 0px; display: flex; flex-direction: column;">
+      <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 10px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; line-height: 1;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: rgb(255, 232, 0);"><svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#002D72"></path></svg></span>CURSO ONLINE GRATUITO</span>
+      <h1 class="np-h1" style="margin: 28px 0px 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: 68px; line-height: 1.04; font-weight: 400; letter-spacing: -1px; color: rgb(255, 255, 255);">Aprenda a usar IA no seu <span style="color: rgb(255, 232, 0);">escritório contábil</span></h1>
+      <p style="margin: 24px 0px 0px; max-width: 500px; font-size: 18px; line-height: 1.6; color: rgb(220, 231, 247);">Aprenda IA do zero com contadores que já a usam no dia a dia. Em aulas práticas por setor, crie processos para o seu escritório sem programar.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 36px;">
+        <a href="#inscricao" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0px 32px; border-radius: 999px; color: rgb(255, 255, 255); text-decoration: none; font-size: 16px; font-weight: 600; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); box-shadow: rgba(100, 49, 226, 0.35) 0px 8px 24px;">Quero acessar grátis</a>
+      </div>
+
+    </div>
+
+    
+    <div class="np-mock"><img src="/assets/img-7f475b5c0336ce39608e77e2415960a0.webp" alt="A plataforma Nibo Play aberta num notebook e uma aula aberta no celular, apoiados sobre uma rocha" width="1600" height="1195"></div>
+    <div class="np-mock-x" role="img" aria-label="A plataforma Nibo Play aberta num notebook e uma aula aberta no celular">
+      <div class="np-lap">
+        <div class="np-lid"><span class="np-cam"></span>
+          <div class="np-scr">
+            <div class="np-app-hero">
+              <img src="/assets/hero-trechos.webp" alt="">
+              <div class="np-app-nav"><span style="font-size: 8px; font-weight: 700; color: rgb(255, 255, 255);">nibo <span style="font-weight: 500; opacity: 0.8;">| Play</span></span><span style="color: rgb(255, 255, 255); font-weight: 600;">Início</span><span>Antes de começar</span><span>Aulas por setor</span><span>Comece por aqui</span></div>
+              <div class="np-app-in">
+                <span style="font-size: 6px; font-weight: 700; letter-spacing: 1.2px; color: rgb(255, 232, 0);">SÉRIE NIBO PLAY</span>
+                <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: clamp(12px, 1.45vw, 20px); line-height: 1.04; color: rgb(255, 255, 255);">IA no seu <span style="color: rgb(255, 232, 0);">escritório contábil</span>, aula por aula</span>
+                <span style="font-size: 6px; color: rgb(220, 231, 247);">GRÁTIS · 4 aulas por setor · 18 vídeos curtos</span>
+                <span style="display: flex; gap: 5px; margin-top: 2px;"><span style="padding: 4px 9px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); font-size: 6.5px; font-weight: 700;">▶ Começar a série</span><span style="padding: 4px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.14); color: rgb(255, 255, 255); font-size: 6.5px; font-weight: 600;">Ver as aulas</span></span>
+              </div>
+            </div>
+            <div class="np-row">
+              <div class="np-c"><span class="np-n">1</span><span class="np-t"><img src="/assets/vert-fiscal.jpg" alt=""><span class="np-tl">Fiscal</span></span></div>
+              <div class="np-c"><span class="np-n">2</span><span class="np-t np-t-on"><img src="/assets/prev-contabil.webp" alt=""><span class="np-tl">Contábil</span></span></div>
+              <div class="np-c"><span class="np-n">3</span><span class="np-t"><img src="/assets/vert-dp.jpg" alt=""><span class="np-tl">DP</span></span></div>
+              <div class="np-c"><span class="np-n">4</span><span class="np-t"><img src="/assets/vert-societario.jpg" alt=""><span class="np-tl">Societário</span></span></div>
+              <div class="np-c"><span class="np-n">5</span><span class="np-t" style="background: linear-gradient(135deg, rgb(28, 42, 138) 0%, rgb(11, 28, 62) 100%); display: flex; align-items: center; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span class="np-tl">Financeiro</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="np-base"></div>
+      </div>
+
+      <div class="np-phone"><div class="np-ph">
+        <div class="np-pv"></div>
+        <span style="font-size: 6px; font-weight: 700; letter-spacing: 1px; color: rgb(255, 232, 0);">AULA 2 · CONTÁBIL · 37 MIN</span>
+        <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: 11px; line-height: 1.1; color: rgb(255, 255, 255);">Do balancete ao painel do empresário</span>
+        <span style="font-size: 6.5px; font-weight: 600; color: rgb(220, 231, 247); margin-top: 2px;">Nesta aula</span>
+        <span style="display: flex; gap: 5px; align-items: center;"><span style="font-size: 6px; color: rgb(159, 179, 214);">00:00</span><span class="np-line" style="flex: 1 1 0%;"></span></span>
+        <span style="display: flex; gap: 5px; align-items: center;"><span style="font-size: 6px; color: rgb(159, 179, 214);">04:12</span><span class="np-line" style="flex: 0.8 1 0%;"></span></span>
+        <span style="display: flex; gap: 5px; align-items: center;"><span style="font-size: 6px; color: rgb(159, 179, 214);">11:40</span><span class="np-line" style="flex: 0.9 1 0%;"></span></span>
+        <span style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 22px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); font-size: 7px; font-weight: 700;">↓ Baixar material</span>
+      </div></div>
+
+      <div class="np-float" style="left: -22px; bottom: 34px;"><span class="np-float-ic"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="#002D72"></path></svg></span><span>Aulas com prompts<br><span style="font-weight: 400; color: rgb(58, 74, 102);">prontos para copiar</span></span></div>
+      <div class="np-float" style="right: 22%; top: -6px; padding: 7px 12px 7px 7px; font-size: 11.5px;"><span class="np-float-ic" style="width: 24px; height: 24px; border-radius: 7px; background: rgb(100, 49, 226);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>Material livre, sem cadastro</div>
+    </div>
+  </div>
+</header><section style="padding: 112px 24px 96px; background: rgb(255, 255, 255);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center;">
+    <div style="flex: 1 1 560px; min-width: 0px; display: flex; flex-direction: column; gap: 24px;">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: rgb(236, 244, 255); color: rgb(0, 114, 206); font-size: 12px; font-weight: 600; letter-spacing: 1px;">Saiba como usar a IA</span>
+      <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px; color: rgb(0, 45, 114);">Você provavelmente usa a IA <br>só para fazer perguntas. <br><span style="color: rgb(0, 45, 114);">Ela pode fazer o trabalho.</span></h2>
+      <p style="margin: 0px; font-size: 18px; line-height: 1.7; color: rgb(58, 74, 102);">Digitar cartão ponto, montar relatório, analisar balancete: horas do mês que a IA já resolve quando alguém mostra o caminho. Aqui, quem mostra vive a mesma rotina que você.</p>
+    </div>
+    <div style="flex: 1 1 420px; min-width: 0px; display: flex; flex-direction: column; gap: 28px;">
+      <div class="np-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; color: rgb(0, 45, 114); width: 228px;">
+          <span aria-hidden="true" style="width: 36px; height: 3px; border-radius: 2px; background: rgb(100, 49, 226);"></span>
+          <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -0.5px; color: rgb(0, 45, 114);">+38%</span>
+          <span style="font-size: 14px; line-height: 1.5; color: rgb(0, 45, 114);">de faturamento sem aumentar a folha de pagamento</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; width: 228px;">
+          <span aria-hidden="true" style="width: 36px; height: 3px; border-radius: 2px; background: rgb(100, 49, 226);"></span>
+          <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -0.5px; color: rgb(0, 45, 114);">Dia 2</span>
+          <span style="font-size: 14px; line-height: 1.5; color: rgb(0, 45, 114);">é quando todas as folhas do escritório já estão fechadas</span>
+        </div>
+      </div>
+      <p style="margin: 0px; font-size: 13px; line-height: 1.6; color: rgb(90, 106, 133);">Resultados da Luvisetto &amp; Associados, escritório de Carlos Luvisetto em Porto Alegre</p>
+    </div>
+  </div>
+</section><section style="padding: 96px 24px; background: rgb(236, 244, 255);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(0, 114, 206); font-size: 12px; font-weight: 600; letter-spacing: 1px;">COMECE POR AQUI</span>
+      <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Os termos que todo mundo usa, em vídeos curtos</h2>
+      <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: rgb(58, 74, 102);">18 vídeos de até 3 minutos sobre o que cada recurso faz <br>no Claude e no ChatGPT.</p>
+    </div>
+    <div class="np-cgrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div style="background: rgb(255, 255, 255); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: rgba(0, 45, 114, 0.06) 0px 10px 30px;">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        </span>
+        <h3 style="margin: 0px; font-size: 19px; font-weight: 600;">Projetos</h3>
+        <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: rgb(58, 74, 102);">Um espaço por cliente ou rotina, com os arquivos e as instruções de sempre.</p>
+      </div>
+      <div style="background: rgb(255, 255, 255); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: rgba(0, 45, 114, 0.06) 0px 10px 30px;">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><path d="M8 12h8M8 16h5" stroke="#6431E2" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <h3 style="margin: 0px; font-size: 19px; font-weight: 600;">Artefatos</h3>
+        <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: rgb(58, 74, 102);">Planilhas, páginas e documentos que a IA cria para você usar.</p>
+      </div>
+      <div style="background: rgb(255, 255, 255); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: rgba(0, 45, 114, 0.06) 0px 10px 30px;">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"></path><path fill="#FFFFFF" d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z"></path></svg>
+        </span>
+        <h3 style="margin: 0px; font-size: 19px; font-weight: 600;">Skills</h3>
+        <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: rgb(58, 74, 102);">Um passo a passo salvo que a IA repete sempre igual, todo mês.</p>
+      </div>
+      <div style="background: rgb(255, 255, 255); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: rgba(0, 45, 114, 0.06) 0px 10px 30px;">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="2.4" height="6" rx="1.2" fill="#FFFFFF"></rect><rect x="13.6" y="2" width="2.4" height="6" rx="1.2" fill="#FFFFFF"></rect><path fill="#FFFFFF" d="M6 9h12v3a6 6 0 0 1-4.8 5.9V22h-2.4v-4.1A6 6 0 0 1 6 12z"></path></svg>
+        </span>
+        <h3 style="margin: 0px; font-size: 19px; font-weight: 600;">Conectores</h3>
+        <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: rgb(58, 74, 102);">A ponte que liga a IA ao seu e-mail, às suas planilhas e ao Nibo.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section id="aulas" style="padding: 72px 24px 80px; background: radial-gradient(760px 520px at 80% 70%, rgba(100, 49, 226, 0.35) 0%, rgba(100, 49, 226, 0) 70%), rgb(2, 30, 73); color: rgb(255, 255, 255);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-direction: column; gap: 32px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px;">
+    <div style="flex: 1 1 520px; min-width: 0px; max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 1px; color: rgb(220, 231, 247);">AULAS POR SETOR</span>
+      <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Uma aula para cada setor do escritório</h2>
+      <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: rgb(220, 231, 247);">Carlos Luvisetto e Mauro Juliani resolvem uma dor real de cada setor, do arquivo do cliente ao resultado pronto, e deixam o processo salvo para repetir todo mês.</p>
+    </div>
+    <span style="font-size: 13px; color: rgb(159, 179, 214);">Passe o mouse para ver a prévia</span>
+    </div>
+    <div class="ls-grid">
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">1</span><a href="/aulas/fiscal" class="ls-card" aria-label="Aula 1, Fiscal: Do PGDAS ao relatório consultivo, 31 min"><img src="/assets/vert-fiscal.jpg" alt=""><img src="/assets/prev-fiscal.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 1 · 31 MIN</span><span class="ls-s">Fiscal</span><span class="ls-t">Do PGDAS ao relatório consultivo</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">2</span><a href="/aulas/contabil" class="ls-card" aria-label="Aula 2, Contábil: Do balancete ao painel do empresário, 37 min"><img src="/assets/vert-contabil.jpg" alt=""><img src="/assets/prev-contabil.webp" alt="" class="ls-prev"><span class="ls-new">NOVA</span><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 2 · 37 MIN</span><span class="ls-s">Contábil</span><span class="ls-t">Do balancete ao painel do empresário</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">3</span><a href="/aulas/dp" class="ls-card" aria-label="Aula 3, DP: Do cartão ponto ao arquivo da folha, 18 min"><img src="/assets/vert-dp.jpg" alt=""><img src="/assets/prev-dp.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 3 · 18 MIN</span><span class="ls-s">DP</span><span class="ls-t">Do cartão ponto ao arquivo da folha</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">4</span><a href="/aulas/societario" class="ls-card" aria-label="Aula 4, Societário: Do WhatsApp à minuta do contrato, 28 min"><img src="/assets/vert-societario.jpg" alt=""><img src="/assets/prev-societario.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 4 · 28 MIN</span><span class="ls-s">Societário</span><span class="ls-t">Do WhatsApp à minuta do contrato</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0px; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: rgb(201, 214, 236); font-weight: 500;">Em produção</span></span></div></div>
+    </div>
+  </div>
+</section><section style="padding: 104px 24px; background: rgb(255, 255, 255);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-wrap: wrap; gap: 56px;">
+    <div style="flex: 1 1 380px; min-width: 0px; display: flex; flex-direction: column; gap: 18px;">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: rgb(236, 244, 255); color: rgb(0, 114, 206); font-size: 12px; font-weight: 600; letter-spacing: 1px;">NIBO + IA</span>
+      <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Peça à IA o que hoje você faz clicando no Nibo</h2>
+      <p style="margin: 0px; font-size: 17px; line-height: 1.7; color: rgb(58, 74, 102);">Conecte o Nibo Contador ao Claude ou ao ChatGPT uma vez e peça em português: a IA consulta e faz no Nibo por você, com o seu acesso.</p>
+    </div>
+    <div style="flex: 1 1 560px; min-width: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid rgb(214, 228, 247); display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 14px; font-weight: 600; color: rgb(0, 114, 206);">Cadastrar clientes de uma planilha</span>
+        <span style="background: rgb(236, 244, 255); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5;">“Cadastre os clientes desta planilha no Nibo.”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid rgb(214, 228, 247); display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 14px; font-weight: 600; color: rgb(0, 114, 206);">Ver as obrigações do mês</span>
+        <span style="background: rgb(236, 244, 255); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5;">“Quais obrigações vencem esta semana?”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid rgb(214, 228, 247); display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 14px; font-weight: 600; color: rgb(0, 114, 206);">Criar tarefas e modelos de processo</span>
+        <span style="background: rgb(236, 244, 255); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5;">“Crie o modelo de processo de abertura de empresa.”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid rgb(214, 228, 247); display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 14px; font-weight: 600; color: rgb(0, 114, 206);">Consultar documentos recebidos</span>
+        <span style="background: rgb(236, 244, 255); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5;">“O que o cliente X enviou este mês?”</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section style="padding: 96px 24px; background: rgb(236, 244, 255);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-direction: column; gap: 40px;">
+    <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">De contador para contador</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+      <div style="background: rgb(255, 255, 255); border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
+        <img src="/assets/img-47a8c39fc4ec1240c9b825577c1d1129.png" alt="Carlos Luvisetto" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block;">
+        <div style="flex: 1 1 220px; min-width: 0px; display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0px; font-size: 21px; font-weight: 600;">Carlos Luvisetto</h3>
+          <span style="font-size: 13px; font-weight: 500; color: rgb(0, 114, 206);">Luvisetto &amp; Associados · Porto Alegre</span>
+          <p style="margin: 4px 0px 0px; font-size: 14px; line-height: 1.6; color: rgb(58, 74, 102);">Contador, usuário do Nibo há anos e embaixador da marca. Estuda e aplica IA e automação no próprio escritório.</p>
+        </div>
+      </div>
+      <div style="background: rgb(255, 255, 255); border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
+        <img src="/assets/img-d9c73ec6cf2278f6d50e09c7379ccb67.png" alt="Mauro Juliani" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block;">
+        <div style="flex: 1 1 220px; min-width: 0px; display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0px; font-size: 21px; font-weight: 600;">Mauro Juliani</h3>
+          <span style="font-size: 13px; font-weight: 500; color: rgb(0, 114, 206);">F5 Contabilidade · Chapecó</span>
+          <p style="margin: 4px 0px 0px; font-size: 14px; line-height: 1.6; color: rgb(58, 74, 102);">Contador e usuário do Nibo. Atende 250 empresas com dois funcionários, com apoio de agentes de IA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="inscricao" class="np-ins" style="padding: 0px 24px; color: rgb(255, 255, 255); background: linear-gradient(rgb(2, 30, 73) 0px, rgba(2, 30, 73, 0) 160px) right bottom / 100% min(560px, 44vw) no-repeat, url(&quot;/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg&quot;) right max(0px, -720px + 50vw) bottom / auto min(560px, 44vw) no-repeat, radial-gradient(640px 480px at 80% 70%, rgba(100, 49, 226, 0.35) 0%, rgba(100, 49, 226, 0) 70%), rgb(2, 30, 73);">
+  <div style="max-width: 1200px; margin: 0px auto; padding: 64px 0px;">
+    <div class="np-ins-col" style="max-width: 600px; display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <span style="align-self: flex-start; padding: 6px 16px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); font-size: 13px; font-weight: 700;">Grátis</span>
+        <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(34px, 4vw, 52px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Acesse o Nibo Play</h2>
+        <p style="margin: 0px; font-size: 17px; line-height: 1.7; color: rgb(220, 231, 247);">Assista agora às 4 aulas e aos 18 vídeos curtos, com materiais e prompts. Financeiro chega em breve.</p>
+      </div>
+      <div id="hs-form-inscricao" class="np-hs-card"><div id="hs-form-inscricao-alvo" class="np-hs-form"></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section style="padding: 104px 24px; background: rgb(255, 255, 255);">
+  <div style="max-width: 860px; margin: 0px auto; display: flex; flex-direction: column; gap: 32px;">
+    <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Perguntas frequentes</h2>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <details style="border-radius: 18px; background: rgb(236, 244, 255); padding: 22px 26px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600;"><span>Preciso ser cliente Nibo para assistir?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: rgb(0, 114, 206); display: flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0px 0px; font-size: 15px; line-height: 1.7; color: rgb(58, 74, 102);">Não. As aulas funcionam com qualquer sistema. Só os trechos com o MCP do Nibo pedem a plataforma.</p>
+      </details>
+      <details style="border-radius: 18px; background: rgb(236, 244, 255); padding: 22px 26px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600;"><span>Preciso saber programar ou instalar alguma ferramenta?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: rgb(0, 114, 206); display: flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0px 0px; font-size: 15px; line-height: 1.7; color: rgb(58, 74, 102);">Não. Tudo é feito com Claude ou ChatGPT, com pedidos em português.</p>
+      </details>
+      <details style="border-radius: 18px; background: rgb(236, 244, 255); padding: 22px 26px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600;"><span>É seguro colocar dados de clientes na IA?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: rgb(0, 114, 206); display: flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0px 0px; font-size: 15px; line-height: 1.7; color: rgb(58, 74, 102);">Depende da ferramenta e do dado. Um vídeo do Comece por aqui trata só disso, e cada aula aponta os cuidados.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<footer style="color: rgb(255, 255, 255); padding: 48px 24px; background-color: rgb(2, 30, 73);">
+  <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="114" height="28" style="display: block; flex: 0 0 auto;"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.91,71.90 292.05,71.23Z"></path></svg>
+
+  </div>
+</footer>
+
+</div>
+</div>
+<template id="dc-tpl">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: #002D72; width: 100%; overflow: hidden">
+
+<!-- 1. HERO -->
+
+
+<!-- 2. PROBLEMA E RESULTADOS -->
+
+
+<!-- 3. COMECE POR AQUI -->
+<header class="np-hero" style="background: radial-gradient(1000px 740px at 92% -80px, rgba(100,49,226,0.55) 0%, rgba(100,49,226,0.14) 50%, rgba(100,49,226,0) 78%), radial-gradient(860px 700px at 0% 100%, rgba(0,114,206,0.30) 0%, rgba(0,114,206,0) 72%), #021E49; color: #FFFFFF; padding: 0 24px 0 24px">
+  <nav style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; letter-spacing: -0.5px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="98" height="24" style="display: block; flex: 0 0 auto"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.91,71.90 292.05,71.23Z"></path></svg>
+      <span style="width: 1px; height: 22px; background: rgba(255,255,255,0.4)"></span>
+      <span style="font-weight: 500">Play</span>
+    </div>
+    <a href="/plataforma" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; color: #002D72; text-decoration: none; font-size: 14px; font-weight: 600; border: 0; background: #FFE800">Entrar na plataforma</a>
+  </nav>
+
+  <div class="np-hero-row" style="max-width: 1200px; margin: 0 auto; padding: 24px 0 64px 0">
+    <div class="np-hero-col" style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column">
+      <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; line-height: 1"><span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #FFE800"><svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#002D72"></path></svg></span>CURSO ONLINE GRATUITO</span>
+      <h1 style="margin: 28px 0 0 0; font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: 68px; line-height: 1.04; font-weight: 400; letter-spacing: -1px; color: #FFFFFF" class="np-h1">Aprenda a usar IA no seu <span style="color: #FFE800">escritório contábil</span></h1>
+      <p style="margin: 24px 0 0 0; max-width: 500px; font-size: 18px; line-height: 1.6; color: #DCE7F7">Aprenda IA do zero com contadores que já a usam no dia a dia. Em aulas práticas por setor, crie processos para o seu escritório sem programar.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 36px">
+        <a href="#inscricao" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 32px; border-radius: 999px; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); box-shadow: 0 8px 24px rgba(100,49,226,0.35)">Quero acessar grátis</a>
+      </div>
+
+    </div>
+
+    <!-- Mockup da plataforma -->
+    <div class="np-mock"><img src="/assets/img-7f475b5c0336ce39608e77e2415960a0.webp" alt="A plataforma Nibo Play aberta num notebook e uma aula aberta no celular, apoiados sobre uma rocha" width="1600" height="1195"></div>
+    <div class="np-mock-x" hidden="" role="img" aria-label="A plataforma Nibo Play aberta num notebook e uma aula aberta no celular">
+      <div class="np-lap">
+        <div class="np-lid"><span class="np-cam"></span>
+          <div class="np-scr">
+            <div class="np-app-hero">
+              <img src="/assets/hero-trechos.webp" alt="">
+              <div class="np-app-nav"><span style="font-size: 8px; font-weight: 700; color: #FFFFFF">nibo <span style="font-weight: 500; opacity: 0.8">| Play</span></span><span style="color: #FFFFFF; font-weight: 600">Início</span><span>Antes de começar</span><span>Aulas por setor</span><span>Comece por aqui</span></div>
+              <div class="np-app-in">
+                <span style="font-size: 6px; font-weight: 700; letter-spacing: 1.2px; color: #FFE800">SÉRIE NIBO PLAY</span>
+                <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: clamp(12px, 1.45vw, 20px); line-height: 1.04; color: #FFFFFF">IA no seu <span style="color: #FFE800">escritório contábil</span>, aula por aula</span>
+                <span style="font-size: 6px; color: #DCE7F7">GRÁTIS · 4 aulas por setor · 18 vídeos curtos</span>
+                <span style="display: flex; gap: 5px; margin-top: 2px"><span style="padding: 4px 9px; border-radius: 999px; background: #FFE800; color: #002D72; font-size: 6.5px; font-weight: 700">▶ Começar a série</span><span style="padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 6.5px; font-weight: 600">Ver as aulas</span></span>
+              </div>
+            </div>
+            <div class="np-row">
+              <div class="np-c"><span class="np-n">1</span><span class="np-t"><img src="/assets/vert-fiscal.jpg" alt=""><span class="np-tl">Fiscal</span></span></div>
+              <div class="np-c"><span class="np-n">2</span><span class="np-t np-t-on"><img src="/assets/prev-contabil.webp" alt=""><span class="np-tl">Contábil</span></span></div>
+              <div class="np-c"><span class="np-n">3</span><span class="np-t"><img src="/assets/vert-dp.jpg" alt=""><span class="np-tl">DP</span></span></div>
+              <div class="np-c"><span class="np-n">4</span><span class="np-t"><img src="/assets/vert-societario.jpg" alt=""><span class="np-tl">Societário</span></span></div>
+              <div class="np-c"><span class="np-n">5</span><span class="np-t" style="background: linear-gradient(135deg, #1C2A8A 0%, #0B1C3E 100%); display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span class="np-tl">Financeiro</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="np-base"></div>
+      </div>
+
+      <div class="np-phone"><div class="np-ph">
+        <div class="np-pv"></div>
+        <span style="font-size: 6px; font-weight: 700; letter-spacing: 1px; color: #FFE800">AULA 2 · CONTÁBIL · 37 MIN</span>
+        <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: 11px; line-height: 1.1; color: #FFFFFF">Do balancete ao painel do empresário</span>
+        <span style="font-size: 6.5px; font-weight: 600; color: #DCE7F7; margin-top: 2px">Nesta aula</span>
+        <span style="display: flex; gap: 5px; align-items: center"><span style="font-size: 6px; color: #9FB3D6">00:00</span><span class="np-line" style="flex: 1"></span></span>
+        <span style="display: flex; gap: 5px; align-items: center"><span style="font-size: 6px; color: #9FB3D6">04:12</span><span class="np-line" style="flex: 0.8"></span></span>
+        <span style="display: flex; gap: 5px; align-items: center"><span style="font-size: 6px; color: #9FB3D6">11:40</span><span class="np-line" style="flex: 0.9"></span></span>
+        <span style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 22px; border-radius: 999px; background: #FFE800; color: #002D72; font-size: 7px; font-weight: 700">↓ Baixar material</span>
+      </div></div>
+
+      <div class="np-float" style="left: -22px; bottom: 34px"><span class="np-float-ic"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="#002D72"></path></svg></span><span>Aulas com prompts<br><span style="font-weight: 400; color: #3A4A66">prontos para copiar</span></span></div>
+      <div class="np-float" style="right: 22%; top: -6px; padding: 7px 12px 7px 7px; font-size: 11.5px"><span class="np-float-ic" style="width: 24px; height: 24px; border-radius: 7px; background: #6431E2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>Material livre, sem cadastro</div>
+    </div>
+  </div>
+</header><section style="padding: 112px 24px 96px 24px; background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+    <div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: #ECF4FF; color: #0072CE; font-size: 12px; font-weight: 600; letter-spacing: 1px">Saiba como usar a IA</span>
+      <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px; color: #002d72">Você provavelmente usa a IA <br>só para fazer perguntas. <br><span style="color: rgb(0, 45, 114)">Ela pode fazer o trabalho.</span></h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A4A66">Digitar cartão ponto, montar relatório, analisar balancete: horas do mês que a IA já resolve quando alguém mostra o caminho. Aqui, quem mostra vive a mesma rotina que você.</p>
+    </div>
+    <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+      <div class="np-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; color: #002d72; width: 228px">
+          <span aria-hidden="true" style="width: 36px; height: 3px; border-radius: 2px; background: #6431E2"></span>
+          <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -0.5px; color: #002D72">+38%</span>
+          <span style="font-size: 14px; line-height: 1.5; color: #002D72">de faturamento sem aumentar a folha de pagamento</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; width: 228px">
+          <span aria-hidden="true" style="width: 36px; height: 3px; border-radius: 2px; background: #6431E2"></span>
+          <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -0.5px; color: #002D72">Dia 2</span>
+          <span style="font-size: 14px; line-height: 1.5; color: #002D72">é quando todas as folhas do escritório já estão fechadas</span>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5A6A85">Resultados da Luvisetto &amp; Associados, escritório de Carlos Luvisetto em Porto Alegre</p>
+    </div>
+  </div>
+</section><section style="padding: 96px 24px; background: #ECF4FF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: #FFFFFF; color: #0072CE; font-size: 12px; font-weight: 600; letter-spacing: 1px">COMECE POR AQUI</span>
+      <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Os termos que todo mundo usa, em vídeos curtos</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3A4A66">18 vídeos de até 3 minutos sobre o que cada recurso faz <br>no Claude e no ChatGPT.</p>
+    </div>
+    <div class="np-cgrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 30px rgba(0,45,114,0.06)">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); display: flex; align-items: center; justify-content: center">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        </span>
+        <h3 style="margin: 0; font-size: 19px; font-weight: 600">Projetos</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4A66">Um espaço por cliente ou rotina, com os arquivos e as instruções de sempre.</p>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 30px rgba(0,45,114,0.06)">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); display: flex; align-items: center; justify-content: center">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><path d="M8 12h8M8 16h5" stroke="#6431E2" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <h3 style="margin: 0; font-size: 19px; font-weight: 600">Artefatos</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4A66">Planilhas, páginas e documentos que a IA cria para você usar.</p>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 30px rgba(0,45,114,0.06)">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); display: flex; align-items: center; justify-content: center">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"></path><path fill="#FFFFFF" d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z"></path></svg>
+        </span>
+        <h3 style="margin: 0; font-size: 19px; font-weight: 600">Skills</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4A66">Um passo a passo salvo que a IA repete sempre igual, todo mês.</p>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 30px rgba(0,45,114,0.06)">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); display: flex; align-items: center; justify-content: center">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="2.4" height="6" rx="1.2" fill="#FFFFFF"></rect><rect x="13.6" y="2" width="2.4" height="6" rx="1.2" fill="#FFFFFF"></rect><path fill="#FFFFFF" d="M6 9h12v3a6 6 0 0 1-4.8 5.9V22h-2.4v-4.1A6 6 0 0 1 6 12z"></path></svg>
+        </span>
+        <h3 style="margin: 0; font-size: 19px; font-weight: 600">Conectores</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4A66">A ponte que liga a IA ao seu e-mail, às suas planilhas e ao Nibo.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. AULAS POR SETOR -->
+
+
+<!-- 5. NIBO + IA -->
+<section id="aulas" style="padding: 72px 24px 80px 24px; background: radial-gradient(760px 520px at 80% 70%, rgba(100,49,226,0.35) 0%, rgba(100,49,226,0) 70%), #021E49; color: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+    <div style="flex: 1 1 520px; min-width: 0; max-width: 680px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 1px; color: #dce7f7">AULAS POR SETOR</span>
+      <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Uma aula para cada setor do escritório</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #DCE7F7">Carlos Luvisetto e Mauro Juliani resolvem uma dor real de cada setor, do arquivo do cliente ao resultado pronto, e deixam o processo salvo para repetir todo mês.</p>
+    </div>
+    <span style="font-size: 13px; color: #9FB3D6">Passe o mouse para ver a prévia</span>
+    </div>
+    <div class="ls-grid">
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">1</span><a href="/aulas/fiscal" class="ls-card" aria-label="Aula 1, Fiscal: Do PGDAS ao relatório consultivo, 31 min"><img src="/assets/vert-fiscal.jpg" alt=""><img src="/assets/prev-fiscal.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 1 · 31 MIN</span><span class="ls-s">Fiscal</span><span class="ls-t">Do PGDAS ao relatório consultivo</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">2</span><a href="/aulas/contabil" class="ls-card" aria-label="Aula 2, Contábil: Do balancete ao painel do empresário, 37 min"><img src="/assets/vert-contabil.jpg" alt=""><img src="/assets/prev-contabil.webp" alt="" class="ls-prev"><span class="ls-new">NOVA</span><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 2 · 37 MIN</span><span class="ls-s">Contábil</span><span class="ls-t">Do balancete ao painel do empresário</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">3</span><a href="/aulas/dp" class="ls-card" aria-label="Aula 3, DP: Do cartão ponto ao arquivo da folha, 18 min"><img src="/assets/vert-dp.jpg" alt=""><img src="/assets/prev-dp.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 3 · 18 MIN</span><span class="ls-s">DP</span><span class="ls-t">Do cartão ponto ao arquivo da folha</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">4</span><a href="/aulas/societario" class="ls-card" aria-label="Aula 4, Societário: Do WhatsApp à minuta do contrato, 28 min"><img src="/assets/vert-societario.jpg" alt=""><img src="/assets/prev-societario.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 4 · 28 MIN</span><span class="ls-s">Societário</span><span class="ls-t">Do WhatsApp à minuta do contrato</span></span></a></div>
+      <div class="ls-top"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: #DCE7F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: #C9D6EC; font-weight: 500">Em produção</span></span></div></div>
+    </div>
+  </div>
+</section><section style="padding: 104px 24px; background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px">
+    <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: #ECF4FF; color: #0072CE; font-size: 12px; font-weight: 600; letter-spacing: 1px">NIBO + IA</span>
+      <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Peça à IA o que hoje você faz clicando no Nibo</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A4A66">Conecte o Nibo Contador ao Claude ou ao ChatGPT uma vez e peça em português: a IA consulta e faz no Nibo por você, com o seu acesso.</p>
+    </div>
+    <div style="flex: 1 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid #D6E4F7; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 14px; font-weight: 600; color: #0072CE">Cadastrar clientes de uma planilha</span>
+        <span style="background: #ECF4FF; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5">“Cadastre os clientes desta planilha no Nibo.”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid #D6E4F7; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 14px; font-weight: 600; color: #0072CE">Ver as obrigações do mês</span>
+        <span style="background: #ECF4FF; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5">“Quais obrigações vencem esta semana?”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid #D6E4F7; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 14px; font-weight: 600; color: #0072CE">Criar tarefas e modelos de processo</span>
+        <span style="background: #ECF4FF; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5">“Crie o modelo de processo de abertura de empresa.”</span>
+      </div>
+      <div style="border-radius: 20px; padding: 24px; border: 1px solid #D6E4F7; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 14px; font-weight: 600; color: #0072CE">Consultar documentos recebidos</span>
+        <span style="background: #ECF4FF; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5">“O que o cliente X enviou este mês?”</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. QUEM ENSINA -->
+<section style="padding: 96px 24px; background: #ECF4FF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+    <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">De contador para contador</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+      <div style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+        <img src="/assets/img-47a8c39fc4ec1240c9b825577c1d1129.png" alt="Carlos Luvisetto" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block">
+        <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 21px; font-weight: 600">Carlos Luvisetto</h3>
+          <span style="font-size: 13px; font-weight: 500; color: #0072CE">Luvisetto &amp; Associados · Porto Alegre</span>
+          <p style="margin: 4px 0 0 0; font-size: 14px; line-height: 1.6; color: #3A4A66">Contador, usuário do Nibo há anos e embaixador da marca. Estuda e aplica IA e automação no próprio escritório.</p>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+        <img src="/assets/img-d9c73ec6cf2278f6d50e09c7379ccb67.png" alt="Mauro Juliani" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block">
+        <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 21px; font-weight: 600">Mauro Juliani</h3>
+          <span style="font-size: 13px; font-weight: 500; color: #0072CE">F5 Contabilidade · Chapecó</span>
+          <p style="margin: 4px 0 0 0; font-size: 14px; line-height: 1.6; color: #3A4A66">Contador e usuário do Nibo. Atende 250 empresas com dois funcionários, com apoio de agentes de IA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. INSCRIÇÃO -->
+<section id="inscricao" class="np-ins" style="padding: 0 24px; color: #FFFFFF; background: linear-gradient(180deg, #021E49 0, rgba(2,30,73,0) 160px) right bottom / 100% min(560px, 44vw) no-repeat, url(&quot;/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg&quot;) right max(0px, calc(50vw - 720px)) bottom / auto min(560px, 44vw) no-repeat, radial-gradient(640px 480px at 80% 70%, rgba(100,49,226,0.35) 0%, rgba(100,49,226,0) 70%), #021E49">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 64px 0 64px 0">
+    <div class="np-ins-col" style="max-width: 600px; display: flex; flex-direction: column; gap: 22px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="align-self: flex-start; padding: 6px 16px; border-radius: 999px; background: #FFE800; color: #002D72; font-size: 13px; font-weight: 700">Grátis</span>
+        <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Acesse o Nibo Play</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #DCE7F7">Assista agora às 4 aulas e aos 18 vídeos curtos, com materiais e prompts. Financeiro chega em breve.</p>
+      </div>
+      <div id="hs-form-inscricao" class="np-hs-card"><div id="hs-form-inscricao-alvo" class="np-hs-form"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section style="padding: 104px 24px; background: #FFFFFF">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+    <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Perguntas frequentes</h2>
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <details open="" style="border-radius: 18px; background: #ECF4FF; padding: 22px 26px">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600"><span>Preciso ser cliente Nibo para assistir?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: #0072CE; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #3A4A66">Não. As aulas funcionam com qualquer sistema. Só os trechos com o MCP do Nibo pedem a plataforma.</p>
+      </details>
+      <details style="border-radius: 18px; background: #ECF4FF; padding: 22px 26px">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600"><span>Preciso saber programar ou instalar alguma ferramenta?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: #0072CE; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #3A4A66">Não. Tudo é feito com Claude ou ChatGPT, com pedidos em português.</p>
+      </details>
+      <details style="border-radius: 18px; background: #ECF4FF; padding: 22px 26px">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 17px; font-weight: 600"><span>É seguro colocar dados de clientes na IA?</span><span aria-hidden="true" style="flex: 0 0 36px; width: 36px; height: 36px; border-radius: 999px; background: #0072CE; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #3A4A66">Depende da ferramenta e do dado. Um vídeo do Comece por aqui trata só disso, e cada aula aponta os cuidados.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CHAMADA FINAL -->
+
+
+<!-- 10. RODAPÉ -->
+<footer style="color: #FFFFFF; padding: 48px 24px; background-color: #021E49">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="114" height="28" style="display: block; flex: 0 0 auto"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.91,71.90 292.05,71.23Z"></path></svg>
+
+  </div>
+</footer>
+
+</div>
+</template>
+<script src="/js/preact.min.js"></script>
+<script src="/js/dc-runtime.js"></script>
+<script src="/js/inscricao.js"></script>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0072CE' };
+  }
+}
+
+NiboDC.mount(Component);
+niboInscricao('#hs-form-inscricao-alvo', { redirect: window.location.origin + '/plataforma' });
+</script>
+</body>
+</html>

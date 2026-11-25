@@ -1,0 +1,30 @@
+/* Nibo Play · estilos comuns do site exportado */
+html{-webkit-text-size-adjust:100%}
+
+
+
+/* Formulário do HubSpot no visual do Nibo Play */
+.np-hs-card{box-sizing:border-box;width:100%;max-width:560px;background:#FFFFFF;color:#002D72;border-radius:24px;padding:24px 26px;box-shadow:0 30px 70px rgba(0,10,40,.35);min-height:320px}
+.np-hs-form{font-family:Poppins,system-ui,sans-serif;color:#002D72;min-height:260px}
+.np-hs-form form{display:flex;flex-direction:column;gap:12px}
+.np-hs-form fieldset{max-width:none !important;border:0;padding:0;margin:0}
+.np-hs-form fieldset.form-columns-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.np-hs-form fieldset.form-columns-2 .hs-form-field{width:auto !important;float:none !important;padding:0 !important}
+@media (max-width:560px){.np-hs-form fieldset.form-columns-2{grid-template-columns:minmax(0,1fr)}}
+.np-hs-form .hs-form-field{margin:0 0 12px 0}
+.np-hs-form .hs-form-field>label{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:#002D72}
+.np-hs-form .hs-form-required{color:#B42318;margin-left:2px}
+.np-hs-form .input{margin:0 !important}
+.np-hs-form .hs-input{width:100% !important;min-height:44px;padding:0 14px;border:1px solid #C9D6EA;border-radius:12px;background:#FFFFFF;font-family:inherit;font-size:15px;color:#002D72}
+.np-hs-form textarea.hs-input{min-height:96px;padding:10px 14px}
+.np-hs-form .hs-input:focus{outline:2px solid #6431E2;outline-offset:1px;border-color:#6431E2}
+.np-hs-form input[type=checkbox].hs-input,.np-hs-form input[type=radio].hs-input{width:auto !important;min-height:0;margin-right:8px}
+.np-hs-form ul.inputs-list{list-style:none;margin:0;padding:0}
+.np-hs-form .hs-error-msgs{list-style:none;margin:6px 0 0 0;padding:0;font-size:12px;font-weight:600;color:#B42318}
+.np-hs-form .hs-richtext,.np-hs-form legend{font-size:12px;line-height:1.5;color:#33507F}
+.np-hs-form .hs_submit .actions{margin:4px 0 0 0;padding:0}
+.np-hs-form .hs-button{width:100%;min-height:52px;border:0;border-radius:999px;background:linear-gradient(135deg,#6431E2 0%,#6431E2 35%,#002D72 130%);color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.np-hs-form .hs-button:hover{filter:brightness(1.08)}
+.np-hs-form .submitted-message{font-size:16px;line-height:1.55;color:#002D72}
+.np-hs-form iframe{width:100% !important}
+.np-hs-erro{margin:0;font-size:14px;color:#B42318}

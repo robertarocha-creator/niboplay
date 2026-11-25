@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nibo Play · Plataforma do curso de IA para contadores</title>
+<meta name="description" content="Aulas por setor, vídeos curtos de Claude e ChatGPT e materiais com os prompts para usar IA no escritório contábil.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Nibo Play">
+<meta property="og:title" content="Nibo Play · Plataforma do curso de IA para contadores">
+<meta property="og:description" content="Aulas por setor, vídeos curtos de Claude e ChatGPT e materiais com os prompts para usar IA no escritório contábil.">
+<meta property="og:image" content="/assets/hero-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#021E49">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#010F27}
+a{color:#41B6E6}a:hover{color:#FFFFFF}
+.v2-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.v2-poster{display:none}
+.v2-hero-bg{object-position:right center}
+.v2-gh{display:flex;align-items:center;gap:10px;margin:0 4vw 12px;font-size:15px;font-weight:600;color:#DCE7F7}
+.v2-chip{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.8px}
+.v2-chip-all{background:rgba(255,255,255,.14);color:#FFFFFF}
+.v2-chip-cl{background:#F2B48C;color:#3A1A08}
+.v2-chip-gp{background:#7FD8BE;color:#06321F}
+.v2-g6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;padding:0 4vw}
+.v2-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 4vw 0}
+.v2-tool{border-radius:18px;padding:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.v2-tool-cl{border-top:3px solid #F2B48C}
+.v2-tool-gp{border-top:3px solid #7FD8BE}
+.v2-g3s{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.v2-sm{aspect-ratio:1/1;padding:16px}
+.v2-sm .v2-mx{font-size:17px}
+.v2-sm .v2-mn{font-size:12px}
+.v2-note{grid-column:span 2;align-self:stretch;display:flex;align-items:center;padding:16px;border-radius:16px;border:1px dashed rgba(127,216,190,.5);font-size:13px;line-height:1.5;color:#C9D6EC}
+.v2-g6 .v2-mx{font-size:18px}
+.v2-steps{display:flex;flex-direction:column;gap:14px;margin:0 4vw}
+.v2-step{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:center;padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.v2-sl{display:flex;flex-direction:column;gap:4px;padding-left:6px}
+.v2-sk{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#FFE800}
+.v2-stt{font-size:20px;font-weight:600;line-height:1.2}
+.v2-ss{font-size:13px;line-height:1.4;color:#9FB3D6}
+.v2-sg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.v2-st{aspect-ratio:auto;min-height:118px;padding:16px}
+.v2-st .v2-mx{font-size:16.5px;padding-right:40px}
+.v2-st .v2-mpl{width:34px;height:34px;right:14px;bottom:14px}
+.v2-ctag{position:absolute;left:14px;top:14px;font-size:10px;padding:3px 8px}
+.v2-g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 4vw}
+.v2-g4 .v2-st{min-height:150px}
+.v2-g4 .v2-mx{font-size:18px}
+@media (max-width:1100px){.v2-g4{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.v2-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.v2-step{grid-template-columns:1fr}.v2-sg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.v2-sg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.v2-g6{grid-template-columns:repeat(3,minmax(0,1fr))}.v2-tools{grid-template-columns:1fr}}
+@media (max-width:720px){.v2-g6{grid-template-columns:repeat(2,minmax(0,1fr))}.v2-g3s{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.v2-fonte{background:linear-gradient(90deg,#002D72 0%,rgba(0,45,114,.96) 42%,rgba(0,45,114,.7) 70%,rgba(0,45,114,.55) 100%),url("/assets/img-387228c4268463918474397b557c1a27.jpg") right center / cover no-repeat,#002D72}
+@media (max-width:720px){.v2-hero{height:auto !important;min-height:640px}}
+@media (prefers-reduced-motion:reduce){.v2-anim{display:none}.v2-poster{display:block}}
+.v2-row{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 4vw 120px 4vw;margin:-24px 0 -96px 0;scrollbar-width:none}
+.v2-row::-webkit-scrollbar{display:none}
+.v2-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding:0 4vw}
+.v2-top{display:flex;align-items:flex-end;position:relative;min-width:0}
+.v2-num{flex:0 0 auto;font-family:Poppins,system-ui,sans-serif;font-weight:500;font-size:150px;line-height:.78;letter-spacing:-8px;color:#010F27;-webkit-text-stroke:1.2px #6E82AA;margin-right:-30px;width:.6em;text-align:center;position:relative;z-index:0;user-select:none}
+.v2-card{position:relative;flex:1 1 auto;min-width:0;border-radius:16px;transition:transform .3s ease;z-index:1}
+.v2-thumb{position:relative;display:block;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#0B1C3E;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.v2-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.v2-prev{opacity:0;transition:opacity .35s ease}
+.v2-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,39,0) 38%,rgba(1,15,39,.95) 88%);transition:background .3s ease}
+.v2-info{position:absolute;left:14px;right:14px;bottom:14px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.v2-k{font-size:11px;font-weight:600;letter-spacing:1.4px;color:#DCE7F7}
+.v2-s{font-size:26px;font-weight:700;letter-spacing:-.5px;color:#FFFFFF}
+.v2-mt{font-size:14px;font-weight:600;line-height:1.3;color:#FFFFFF;margin-top:2px}
+.v2-md,.v2-mp,.v2-ma{display:none}
+.v2-md{font-size:12.5px;line-height:1.45;color:#C9D6EC;margin-top:6px}
+.v2-mp{font-size:12px;color:#9FB3D6;margin-top:6px}
+.v2-ma{gap:6px;margin-top:10px;flex-wrap:wrap}
+.v2-new{position:absolute;right:12px;top:12px;z-index:1;padding:4px 10px;border-radius:999px;background:#FFE800;color:#002D72;font-size:11px;font-weight:700;letter-spacing:1px}
+.v2-pl{position:absolute;left:12px;top:12px;z-index:1;display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 8px;border-radius:999px;background:rgba(1,15,39,.6);font-size:11px;font-weight:600;color:#FFFFFF;transition:opacity .3s ease}
+.v2-card:hover,.v2-card:focus-within{transform:scale(1.05);z-index:5}
+.v2-card:hover .v2-prev,.v2-card:focus-within .v2-prev{opacity:1}
+.v2-card:hover .v2-thumb::after,.v2-card:focus-within .v2-thumb::after{background:linear-gradient(180deg,rgba(1,15,39,0) 10%,rgba(1,15,39,.97) 62%)}
+.v2-card:hover .v2-md,.v2-card:focus-within .v2-md{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:12px}
+.v2-card:hover .v2-mt,.v2-card:focus-within .v2-mt{font-size:13px}
+.v2-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;box-sizing:border-box;font-family:inherit;font-size:14px;font-weight:600;line-height:1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .2s ease,color .2s ease}
+.v2-btn-y{background:#FFE800;color:#002D72;border:1px solid #FFE800}
+.v2-btn-y:hover{background:#FFF27A;color:#002D72}
+.v2-btn-g{background:rgba(255,255,255,.12);color:#FFFFFF;border:1px solid rgba(255,255,255,.35)}
+.v2-btn-g:hover{background:rgba(255,255,255,.24);color:#FFFFFF}
+.v2-ma{flex-wrap:nowrap !important}
+.v2-ma .v2-btn{flex:1 1 0;min-width:0}
+.v2-card:hover .v2-ma,.v2-card:focus-within .v2-ma{display:flex}
+.v2-card:hover .v2-pl,.v2-card:focus-within .v2-pl{opacity:0}
+.v2-card .v2-btn{min-height:36px;padding:0 10px;font-size:12.5px;gap:6px}
+.v2-locked{background:linear-gradient(135deg,#1C2A8A 0%,#0B1C3E 100%) !important}
+.v2-lk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:600;color:#DCE7F7;z-index:1}
+.v2-off{opacity:.85}
+.v2-off .v2-md{display:block}
+.v2-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0 4vw}
+.v2-g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding:0 4vw}
+.v2-big{display:flex;flex-direction:row;align-items:center;border-radius:14px;overflow:hidden;background:#0B1C3E;border:1px solid rgba(255,255,255,.08);text-decoration:none;color:#FFFFFF;transition:transform .3s ease,border-color .3s ease;box-shadow:none}
+.v2-big:hover{transform:translateY(-3px);border-color:rgba(255,232,0,.55);color:#FFFFFF}
+.v2-bt{position:relative;flex:0 0 168px;aspect-ratio:16/9;overflow:hidden;border-radius:10px;margin:10px 0 10px 10px}
+.v2-bn{position:absolute;left:8px;top:8px;width:24px;height:24px;border-radius:999px;background:#FFE800;color:#002D72;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.v2-bd{position:absolute;right:6px;bottom:6px;padding:2px 7px;border-radius:5px;background:rgba(0,0,0,.6);font-size:10.5px;font-weight:600;z-index:1}
+.v2-bplay{position:absolute;left:50%;top:50%;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:999px;background:rgba(255,255,255,.92);color:#6431E2;display:flex;align-items:center;justify-content:center;z-index:1;transition:transform .3s ease}
+.v2-bplay svg{width:14px;height:14px}
+.v2-big:hover .v2-bplay{transform:scale(1.1)}
+.v2-bx{display:flex;flex-direction:column;gap:3px;padding:12px 16px;min-width:0}
+.v2-bk{font-size:10px;font-weight:600;letter-spacing:1.3px;color:#9FB3D6}
+.v2-bh{font-size:16px;font-weight:600;line-height:1.25}
+.v2-bp{font-size:12.5px;line-height:1.4;color:#C9D6EC}
+.v2-mini{position:relative;aspect-ratio:5/4;box-sizing:border-box;padding:20px;border-radius:16px;background:linear-gradient(135deg,#1A2D6B 0%,#0B1C3E 100%);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;text-decoration:none;color:#FFFFFF;transition:transform .25s ease,border-color .25s ease;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.v2-mini:hover{transform:translateY(-6px);border-color:rgba(255,232,0,.6);color:#FFFFFF}
+.v2-mn{font-size:12px;font-weight:600;line-height:1;color:#DCE7F7}
+.v2-mx{margin-top:auto;font-size:21px;font-weight:600;line-height:1.2;padding-right:44px}
+.v2-mf{margin-top:6px;font-size:12px;color:#9FB3D6}
+.v2-mpl{position:absolute;right:18px;bottom:20px;width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#FFFFFF}
+.v2-mini:hover .v2-mpl{background:#FFE800;color:#002D72}
+@media (max-width:1100px){.v2-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:8px}.v2-top{flex:0 0 240px;scroll-snap-align:start}.v2-num{font-size:120px;margin-right:-28px}}
+@media (max-width:1100px){.v2-g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.v2-g3{grid-template-columns:1fr}.v2-bt{flex-basis:128px}.v2-g5{grid-template-columns:repeat(2,minmax(0,1fr))}.v2-mx{font-size:17px}.v2-h1{font-size:40px !important}}
+@media (hover:none){.v2-ma{display:flex}.v2-card:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.v2-card,.v2-mini{transition:none}.v2-prev{display:none}.v2-big{transition:none}}
+.v2-seal-ring{transform-box:view-box;transform-origin:50% 50%;animation:v2-seal-spin 32s linear infinite}
+@keyframes v2-seal-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.v2-seal-ring{animation:none}}
+.v2-g4 .v2-mini{overflow:hidden;isolation:isolate}
+.v2-g4 .v2-mini>.v2-mn,.v2-g4 .v2-mini>.v2-mx,.v2-g4 .v2-mini>.v2-mf{position:relative;z-index:1}
+.v2-g4 .v2-mini>.v2-mpl{z-index:1}
+.np-gl{position:absolute !important;z-index:0 !important;right:24px;top:18px;width:70px;height:70px;pointer-events:none;transform:scale(1.4);transform-origin:100% 0}
+.np-orb{position:absolute;left:27px;top:43px;width:160px;height:160px;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.np-orb .o{transform-box:view-box;transform-origin:50% 50%}
+.np-orb .o1{animation:nporb-r 14s linear infinite,nporb-b 4s ease-in-out infinite alternate}
+.np-orb .o2{animation:nporb-r 22s linear infinite reverse,nporb-b 5s ease-in-out -1.5s infinite alternate}
+.np-orb .o3{animation:nporb-r 30s linear infinite,nporb-b 6s ease-in-out -3s infinite alternate}
+.np-orb circle[r^="1"],.np-orb circle[r^="2"]{filter:drop-shadow(0 0 3px #4F7FFF)}
+@keyframes nporb-r{to{rotate:360deg}}
+@keyframes nporb-b{0%{scale:.96}100%{scale:1.04}}
+.np-gl-f{position:absolute;left:0;bottom:0;width:54px;height:54px;box-sizing:border-box;border-radius:999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.08) 100%);border:1px solid rgba(255,255,255,.45);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 22px rgba(10,10,60,.28),inset 0 1px 0 rgba(255,255,255,.4)}
+@media (prefers-reduced-motion:reduce){.np-orb .o{animation:none}}
+.v2-vbtn{width:100%;font:inherit;text-align:left;cursor:pointer}
+.v2-vbtn:focus-visible{outline:2px solid #FFE800;outline-offset:3px}
+.v2-modal-x:hover,.v2-nav:hover{background:#FFE800 !important;color:#002D72 !important;border-color:#FFE800 !important}
+.v2-nav-b{display:none !important}
+@media (max-width:760px){.v2-nav-s{display:none !important}.v2-nav-b{display:flex !important}.v2-modal-top,.v2-modal-bot{padding:0 !important}}
+.v2-seen{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:5px;padding:4px 10px 4px 8px;border-radius:999px;background:#0E3B33;border:1px solid rgba(61,220,151,.6);color:#7CF0BE;font-size:11px;font-weight:700;letter-spacing:.3px;line-height:1.2;pointer-events:none}
+.v2-vbtn .v2-seen{left:14px;top:12px}
+.v2-vbtn.is-seen .v2-mn{visibility:hidden}
+.v2-vbtn.is-seen{border-color:rgba(61,220,151,.35)}
+.v2-thumb .v2-seen{left:12px;top:12px}
+.v2-thumb.is-seen .v2-pl{display:none}
+.v2-bt .v2-seen{right:6px;top:6px;left:auto}
+.v2-prog-bar{height:8px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+.v2-prog-fill{height:100%;border-radius:999px;background:#FFE800}
+.v2-link-x{background:none;border:0;padding:0;font:inherit;color:#B8CCEA;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:32px}
+.v2-link-x:hover{color:#FFFFFF}
+.v2-in{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid #C9D6EA;font-family:inherit;font-size:15px;color:#002D72;background:#FFFFFF;box-sizing:border-box;width:100%}
+.v2-in:focus{outline:2px solid #6431E2;outline-offset:1px;border-color:#6431E2}
+.v2-lb{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#002D72;min-width:0}
+.v2-row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.v2-row2{grid-template-columns:minmax(0,1fr)}}
+.v2-inv{margin:0 72px}
+@media (max-width:760px){.v2-inv{margin:0}}
+</style>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div id="root">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: rgb(255, 255, 255); background: rgb(1, 15, 39); min-height: 100vh; overflow-x: hidden;">
+
+  
+  <header class="v2-hero" style="position: relative; height: 720px; display: flex; flex-direction: column; overflow: hidden;">
+    <img src="/assets/hero-trechos.webp" alt="" aria-hidden="true" class="v2-hero-bg v2-anim">
+    <img src="/assets/hero-poster.jpg" alt="" aria-hidden="true" class="v2-hero-bg v2-poster">
+    <div aria-hidden="true" style="position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(1, 15, 39, 0.98) 0%, rgba(1, 15, 39, 0.9) 34%, rgba(1, 15, 39, 0.5) 62%, rgba(1, 15, 39, 0.6) 100%), linear-gradient(rgba(1, 15, 39, 0.7) 0%, rgba(1, 15, 39, 0) 22%, rgba(1, 15, 39, 0) 70%, rgb(1, 15, 39) 100%);"></div>
+
+    <nav aria-label="Principal" style="position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding: 22px 4vw;">
+      <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgb(255, 255, 255);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="92" height="23" style="display: block; flex: 0 0 auto;"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.910,71.90 292.05,71.23Z"></path></svg><span style="width: 1px; height: 20px; background: rgba(255, 255, 255, 0.4);"></span><span style="font-size: 20px; font-weight: 500;">Play</span></a>
+      <div style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 14px;">
+        <a href="#inicio" style="color: rgb(255, 255, 255); text-decoration: none; font-weight: 600;">Início</a>
+        <a href="#antes" style="color: rgb(201, 214, 236); text-decoration: none;">Antes de começar</a>
+        <a href="#aulas" style="color: rgb(201, 214, 236); text-decoration: none;">Aulas por setor</a>
+        <a href="#conceitos" style="color: rgb(201, 214, 236); text-decoration: none;">Comece por aqui</a>
+        <a href="#nibo" style="color: rgb(201, 214, 236); text-decoration: none;">Nibo + IA</a>
+      </div>
+    </nav>
+
+    <div id="inicio" style="position: relative; z-index: 2; margin-top: auto; padding: 0px 4vw 88px; max-width: 640px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: rgb(255, 232, 0);">
+        SÉRIE NIBO PLAY
+      </div>
+      <h1 class="v2-h1" style="margin: 18px 0px 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Fraunces, Georgia, serif; font-size: 60px; line-height: 1.02; font-weight: 400; letter-spacing: -1px;">IA no seu escritório contábil, aula por aula</h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 18px; font-size: 14px; color: rgb(220, 231, 247);">
+        <span style="padding: 3px 10px; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; font-size: 12px; font-weight: 600;">GRÁTIS</span>
+        <span>4 aulas por setor + Financeiro em breve</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
+      </div>
+      <p style="margin: 16px 0px 0px; font-size: 17px; line-height: 1.6; color: rgb(220, 231, 247); max-width: 540px;">Do PGDAS ao contrato social: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
+      <p style="margin: 12px 0px 0px; font-size: 14px; color: rgb(159, 179, 214);">Com Carlos Luvisetto e Mauro Juliani</p>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;">
+        <a href="/aulas/conecte-o-nibo" class="v2-btn v2-btn-y" style="min-height: 52px; padding: 0px 28px; font-size: 16px;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Começar a série</a>
+        <a href="#aulas" class="v2-btn v2-btn-g" style="min-height: 52px; padding: 0px 24px; font-size: 16px;">Ver as aulas</a>
+      </div>
+      
+      
+    </div>
+  </header>
+
+  <main style="position: relative; z-index: 3; display: flex; flex-direction: column; gap: 52px; margin-top: -40px; padding-bottom: 40px; height: 1872px;">
+
+    
+    <section id="antes" aria-labelledby="h-antes">
+      <h2 id="h-antes" style="margin: 0px 4vw 12px; font-size: 18px; font-weight: 600; color: rgb(220, 231, 247);">Antes de começar <span style="font-size: 14px; font-weight: 400; color: rgb(159, 179, 214);">· assista nesta ordem</span></h2>
+      <div class="v2-g3">
+        <a href="#" class="v2-big" aria-label="O pacto: nada de IA gratuita no escritório, em breve">
+          <span class="v2-bt" style="background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(0, 45, 114) 100%); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v7c0 5.2-3.4 8.7-8 10-4.6-1.3-8-4.8-8-10V5z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span class="v2-bn">1</span><span class="v2-bd">Em breve</span></span>
+          <span class="v2-bx"><span class="v2-bk">O PACTO · CARLOS LUVISETTO</span><span class="v2-bh">Nada de IA gratuita no escritório</span><span class="v2-bp">O combinado antes de colocar dados de clientes na IA.</span></span>
+        </a>
+        <a href="#conceitos" class="v2-big" aria-label="Nunca usou IA? 18 vídeos curtos de Claude e ChatGPT, opcional">
+          <span class="v2-bt" style="background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(0, 45, 114) 100%); display: flex; align-items: center; justify-content: center;"><span class="v2-bn">2</span><svg viewBox="0 0 48 40" width="54" height="45" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="2" width="30" height="20" rx="3.5" opacity="0.35"></rect><rect x="9" y="7" width="30" height="20" rx="3.5" opacity="0.6"></rect><rect x="4" y="12" width="30" height="20" rx="3.5" fill="#4B2BB8"></rect><path d="M16 17.5v9l7.5-4.5z" fill="#FFFFFF"></path></svg><span class="v2-bd">Opcional</span></span>
+          <span class="v2-bx"><span class="v2-bk">PARA QUEM ESTÁ COMEÇANDO</span><span class="v2-bh">Nunca usou IA? Comece pelos conceitos</span><span class="v2-bp">Claude, ChatGPT e o básico de IA, em vídeos de até 3 minutos.</span></span>
+        </a>
+        <a href="/aulas/conecte-o-nibo" class="v2-big" aria-label="Conecte o Nibo à sua IA, opcional, 7 minutos">
+          <span class="v2-bt"><img src="/assets/mcp-player.jpg" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"><span class="v2-bn">3</span><span class="v2-bd">Opcional · 7 min</span><span class="v2-bplay" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></span>
+          <span class="v2-bx"><span class="v2-bk">MCP DO NIBO · CARLOS LUVISETTO</span><span class="v2-bh">Conecte o Nibo à sua IA</span><span class="v2-bp">O que é MCP e como ligar o Nibo ao Claude ou ao ChatGPT.</span></span>
+        </a>
+      </div>
+    </section>
+
+    
+    <section id="aulas" aria-labelledby="h-aulas">
+      <h2 id="h-aulas" style="margin: 0px 4vw 4px; font-size: 32px; font-weight: 600;">Aulas por setor <span style="font-size: 14px; font-weight: 400; color: rgb(159, 179, 214);">· uma tarefa real em cada aula</span></h2>
+      <div class="v2-grid" style="padding-top: 24px;">
+<div class="v2-top"><span class="v2-num" aria-hidden="true">1</span>
+      <div class="v2-card">
+        <div class="v2-thumb ">
+          <img src="/assets/vert-fiscal.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-fiscal.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 1 · 31 min</span>
+            <span class="v2-s">Fiscal</span>
+            <span class="v2-mt">Do PGDAS ao relatório consultivo</span>
+            <span class="v2-md">O extrato que você já gera vira um relatório de 1 página para o empresário, salvo como skill e enviado à conferência do Nibo.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/aulas/fiscal" class="v2-btn v2-btn-y" aria-label="Assistir aula 1: Fiscal"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-1-fiscal.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">2</span>
+      <div class="v2-card">
+        <div class="v2-thumb ">
+          <img src="/assets/vert-contabil.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-contabil.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          <span class="v2-new">NOVA</span>
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 2 · 37 min</span>
+            <span class="v2-s">Contábil</span>
+            <span class="v2-mt">Do balancete ao painel do empresário</span>
+            <span class="v2-md">Indicadores de lucro, caixa e endividamento num painel de 10 telas, sem termos técnicos, pronto para a reunião.</span>
+            <span class="v2-mp">Com Mauro Juliani</span>
+            <span class="v2-ma"><a href="/aulas/contabil" class="v2-btn v2-btn-y" aria-label="Assistir aula 2: Contábil"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-2-contabil.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">3</span>
+      <div class="v2-card">
+        <div class="v2-thumb ">
+          <img src="/assets/vert-dp.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-dp.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 3 · 18 min</span>
+            <span class="v2-s">DP</span>
+            <span class="v2-mt">Do cartão ponto ao arquivo da folha</span>
+            <span class="v2-md">A IA apura a jornada com as regras da convenção e gera o arquivo de importação, com espelho de conferência.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/aulas/dp" class="v2-btn v2-btn-y" aria-label="Assistir aula 3: DP"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-3-dp.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">4</span>
+      <div class="v2-card">
+        <div class="v2-thumb ">
+          <img src="/assets/vert-societario.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-societario.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 4 · 28 min</span>
+            <span class="v2-s">Societário</span>
+            <span class="v2-mt">Do WhatsApp à minuta do contrato</span>
+            <span class="v2-md">Constituição e alteração contratual: a IA lê conversa, formulário e anexos e monta a minuta para conferência.</span>
+            <span class="v2-mp">Com Mauro Juliani</span>
+            <span class="v2-ma"><a href="/aulas/societario" class="v2-btn v2-btn-y" aria-label="Assistir aula 4: Societário"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-4-societario.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">5</span>
+      <div class="v2-card v2-off"><div class="v2-thumb v2-locked"><span class="v2-lk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span>
+        <span class="v2-info"><span class="v2-k">AULA 5</span><span class="v2-s">Financeiro</span><span class="v2-md">Em produção. Avisamos quando estrear.</span></span></div></div></div>
+      </div>
+    </section>
+
+    
+    <section id="conceitos" aria-labelledby="h-conc">
+      <h2 id="h-conc" style="margin: 0px 4vw 6px; font-size: 26px; font-weight: 600;">Comece por aqui&nbsp;&nbsp;<span style="font-size: 14px; font-weight: 400; color: rgb(159, 179, 214);">· vídeos curtos por ferramenta</span></h2>
+      <p style="margin: 0px 4vw 18px; font-size: 14px; color: rgb(201, 214, 236);">Escolha a IA que o seu escritório usa. Os vídeos de Geral valem para as duas.</p>
+      <div role="tablist" aria-label="Ferramenta" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0px 4vw 18px;">
+        
+          <button type="button" role="tab" aria-selected="true" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0px 18px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 700; border: 1px solid rgb(255, 232, 0); background: rgb(255, 232, 0); color: rgb(0, 45, 114);"><span>Claude</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0px 6px; box-sizing: border-box; border-radius: 999px; font-size: 12px; font-weight: 700; background: rgba(0, 45, 114, 0.15);">8</span></button>
+        
+          <button type="button" role="tab" aria-selected="false" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0px 18px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); color: rgb(255, 255, 255);"><span>ChatGPT</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0px 6px; box-sizing: border-box; border-radius: 999px; font-size: 12px; font-weight: 700; background: rgba(255, 255, 255, 0.14);">8</span></button>
+        
+          <button type="button" role="tab" aria-selected="false" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0px 18px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); color: rgb(255, 255, 255);"><span>Geral</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0px 6px; box-sizing: border-box; border-radius: 999px; font-size: 12px; font-weight: 700; background: rgba(255, 255, 255, 0.14);">2</span></button>
+        
+        <span style="margin-left: 6px; font-size: 14px; color: rgb(159, 179, 214);">com Sthephany Talasca</span>
+      </div>
+      <div class="v2-g4">
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir O básico do Claude, 1:34"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">1</span><span class="v2-mx">O básico do Claude</span><span class="v2-mf">1:34</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Perguntar ou pedir, 0:34"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">2</span><span class="v2-mx">Perguntar ou pedir</span><span class="v2-mf">0:34</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Como fazer um bom pedido, 2:20"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M15.2 3.8l5 5L9 20H4v-5z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">3</span><span class="v2-mx">Como fazer um bom pedido</span><span class="v2-mf">2:20</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Conectores, 1:51"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M8 2h2.4v6H8z M13.6 2h2.4v6h-2.4z M6 9h12v3a6 6 0 0 1-4.8 5.9V22h-2.4v-4.1A6 6 0 0 1 6 12z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">4</span><span class="v2-mx">Conectores</span><span class="v2-mf">1:51</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Tarefas agendadas, 2:59"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20z M12 4.2a7.8 7.8 0 1 1 0 15.6a7.8 7.8 0 1 1 0-15.6z M11 7h2v5.4l3.7 2.2-1 1.7-4.7-2.8z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">5</span><span class="v2-mx">Tarefas agendadas</span><span class="v2-mf">2:59</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Projetos, 1:55"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">6</span><span class="v2-mx">Projetos</span><span class="v2-mf">1:55</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Skills, 2:08"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">7</span><span class="v2-mx">Skills</span><span class="v2-mf">2:08</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+          <button type="button" class="v2-mini v2-st v2-vbtn " aria-label="Assistir Artefatos, 2:24"><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M8 11h8v2H8z M8 15h5v2H8z"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="M0 0"></path></svg></span></span><span class="v2-mn">8</span><span class="v2-mx">Artefatos</span><span class="v2-mf">2:24</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        
+      </div>
+    </section>
+
+    
+    <section id="nibo" style="margin: 0px 4vw; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; align-items: stretch;">
+
+      
+      <div aria-labelledby="h-oferta" style="position: relative; overflow: hidden; border-radius: 20px; padding: 28px 30px; background: linear-gradient(120deg, rgb(100, 49, 226) 0%, rgb(59, 35, 168) 45%, rgb(0, 45, 114) 100%); border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: rgba(0, 0, 0, 0.35) 0px 14px 34px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px;">
+        <div style="flex: 1 1 280px; min-width: 0px; display: flex; flex-direction: column;">
+          <span style="align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: rgb(242, 245, 250);">OFERTA POR TEMPO LIMITADO</span>
+          <h3 id="h-oferta" style="margin: 8px 0px 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Fraunces, Georgia, serif; font-size: 26px; line-height: 1.12; font-weight: 400; letter-spacing: -0.3px;">Coloque em prática no seu escritório o que você viu nas aulas</h3>
+          <ul style="list-style: none; margin: 14px 0px 0px; padding: 0px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45; color: rgb(255, 255, 255);">
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFE800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px;"><path d="M5 12l5 5L20 7"></path></svg><span style="display: flex; flex-direction: column; gap: 2px;"><strong>Nibo Obrigações</strong><span>Prazos, guias e conferência de todos os clientes num só lugar.</span></span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFE800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px;"><path d="M5 12l5 5L20 7"></path></svg><span style="display: flex; flex-direction: column; gap: 2px;"><strong>MCP do Nibo</strong><span>A IA consulta e trabalha no Nibo por você, como nas aulas.</span></span></li>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px;">
+            <a href="https://www.nibo.com.br/mcp-contador?utm_source=nibo-play&amp;utm_medium=plataforma&amp;utm_campaign=curso-ia-para-contadores&amp;utm_content=oferta-quero-aproveitar" target="_blank" rel="noopener" class="v2-btn v2-btn-y" style="justify-content: center; gap: 10px; min-height: 46px; padding: 0px 22px; font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap;">Quero aproveitar<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+            
+          </div>
+        </div>
+        <div aria-hidden="true" style="flex: 0 0 auto; margin: 0px auto; position: relative; width: 156px; height: 156px;"><span style="position: absolute; left: 50%; top: 50%; width: 400px; height: 300px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 232, 0, 0.16) 0%, rgba(255, 232, 0, 0) 100%); pointer-events: none;"></span><svg viewBox="0 0 180 180" width="156" height="156" style="position: relative; display: block; overflow: visible; filter: drop-shadow(rgba(1, 15, 39, 0.45) 0px 14px 26px);"><circle cx="90" cy="90" r="89" fill="#FFE800"></circle><circle cx="90" cy="90" r="58" fill="none" stroke="rgba(0,45,114,0.3)" stroke-width="1"></circle><defs><path id="v2-seal-path" d="M90,90 m-71,0 a71,71 0 1,1 142,0 a71,71 0 1,1 -142,0"></path></defs><g class="v2-seal-ring"><text font-family="Poppins, system-ui, sans-serif" font-size="12" font-weight="700" fill="#002D72" letter-spacing="1"><textPath href="#v2-seal-path" textLength="440" lengthAdjust="spacing">COMECE A USAR AGORA E SÓ PAGUE DEPOIS • </textPath></text></g></svg><span style="position: absolute; inset: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgb(0, 45, 114); text-align: center; font-size: 15px;"><span style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.2px; line-height: 1; margin-top: 6px; margin-bottom: 4px;">1º MÊS SÓ EM</span><span style="font-size: 34px; font-weight: 800; line-height: 0.85; letter-spacing: -1.5px;">60</span><span style="font-size: 11.5px; font-weight: 800; letter-spacing: 1.6px; padding-left: 1.6px; line-height: 1; margin-top: 4px;">DIAS</span></span></div>
+        <p style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Sua primeira mensalidade só em 60 dias. Comece a usar agora e só pague depois.</p>
+      </div>
+
+      
+      <div class="v2-fonte" style="border-radius: 20px; padding: 28px 30px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-direction: column; justify-content: center; gap: 18px;">
+        <div style="min-width: 0px; max-width: 420px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: rgb(159, 179, 214);">PARCERIA NIBO + A FONTE</span>
+          <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Fraunces, Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.12;">Continue aprendendo IA com a Comunidade A Fonte</span>
+          <span style="font-size: 13.5px; line-height: 1.5; color: rgb(201, 214, 236);">Cursos com certificado e lives gratuitas às quartas, das 9h às 12h. Condições especiais para usuários Nibo.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-g">Quartas grátis</a></div>
+      </div>
+    </section>
+
+    <footer style="margin: 8px 4vw 0px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: rgb(159, 179, 214);">
+      <span>Nibo Play · conteúdos atualizados conforme as ferramentas evoluem.</span>
+      <span>Dados das aulas são fictícios ou anonimizados.</span>
+    </footer>
+  </main>
+
+  
+  
+  
+  
+</div>
+</div>
+<template id="dc-tpl">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: #FFFFFF; background: #010F27; min-height: 100vh; overflow-x: hidden">
+
+  <!-- HERO -->
+  <header class="v2-hero" style="position: relative; height: 720px; display: flex; flex-direction: column; overflow: hidden">
+    <img src="/assets/hero-trechos.webp" alt="" aria-hidden="true" class="v2-hero-bg v2-anim">
+    <img src="/assets/hero-poster.jpg" alt="" aria-hidden="true" class="v2-hero-bg v2-poster">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(1,15,39,0.98) 0%, rgba(1,15,39,0.9) 34%, rgba(1,15,39,0.5) 62%, rgba(1,15,39,0.6) 100%), linear-gradient(180deg, rgba(1,15,39,0.7) 0%, rgba(1,15,39,0) 22%, rgba(1,15,39,0) 70%, #010F27 100%)"></div>
+
+    <nav aria-label="Principal" style="position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding: 22px 4vw">
+      <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF"><svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="92" height="23" style="display: block; flex: 0 0 auto"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.910,71.90 292.05,71.23Z"></path></svg><span style="width: 1px; height: 20px; background: rgba(255,255,255,0.4)"></span><span style="font-size: 20px; font-weight: 500">Play</span></a>
+      <div style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 14px">
+        <a href="#inicio" style="color: #FFFFFF; text-decoration: none; font-weight: 600">Início</a>
+        <a href="#antes" style="color: #C9D6EC; text-decoration: none">Antes de começar</a>
+        <a href="#aulas" style="color: #C9D6EC; text-decoration: none">Aulas por setor</a>
+        <a href="#conceitos" style="color: #C9D6EC; text-decoration: none">Comece por aqui</a>
+        <a href="#nibo" style="color: #C9D6EC; text-decoration: none">Nibo + IA</a>
+      </div>
+    </nav>
+
+    <div id="inicio" style="position: relative; z-index: 2; margin-top: auto; padding: 0 4vw 88px 4vw; max-width: 640px">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #FFE800">
+        SÉRIE NIBO PLAY
+      </div>
+      <h1 class="v2-h1" style="margin: 18px 0 0 0; font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 60px; line-height: 1.02; font-weight: 400; letter-spacing: -1px">IA no seu escritório contábil, aula por aula</h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 18px; font-size: 14px; color: #DCE7F7">
+        <span style="padding: 3px 10px; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; font-size: 12px; font-weight: 600">GRÁTIS</span>
+        <span>4 aulas por setor + Financeiro em breve</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
+      </div>
+      <p style="margin: 16px 0 0 0; font-size: 17px; line-height: 1.6; color: #DCE7F7; max-width: 540px">Do PGDAS ao contrato social: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
+      <p style="margin: 12px 0 0 0; font-size: 14px; color: #9FB3D6">Com Carlos Luvisetto e Mauro Juliani</p>
+      <sc-if value="{{prog.none}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px">
+        <a href="/aulas/conecte-o-nibo" class="v2-btn v2-btn-y" style="min-height: 52px; padding: 0 28px; font-size: 16px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Começar a série</a>
+        <a href="#aulas" class="v2-btn v2-btn-g" style="min-height: 52px; padding: 0 24px; font-size: 16px">Ver as aulas</a>
+      </div>
+      </sc-if>
+      <sc-if value="{{prog.some}}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 28px; max-width: 460px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 14px; color: #DCE7F7">
+            <span style="font-weight: 600; color: #FFFFFF">Seu progresso</span>
+            <span>{{prog.done}} de {{prog.total}} vídeos assistidos</span>
+          </div>
+          <div class="v2-prog-bar" role="progressbar" aria-label="Progresso na série" aria-valuemin="0" aria-valuemax="{{prog.total}}" aria-valuenow="{{prog.done}}"><div class="v2-prog-fill" style="{{prog.fillStyle}}"></div></div>
+          <sc-if value="{{prog.hasNext}}" hint-placeholder-val="{{ true }}">
+            <span style="font-size: 14px; color: #C9D6EC">Próximo: <strong style="color: #FFFFFF; font-weight: 600">{{prog.nextT}}</strong></span>
+          </sc-if>
+          <sc-if value="{{prog.allDone}}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: 15px; font-weight: 600; color: #7CF0BE">Você concluiu todos os vídeos da série.</span>
+          </sc-if>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px">
+            <sc-if value="{{prog.nextIsEp}}" hint-placeholder-val="{{ true }}">
+              <a href="{{prog.nextHref}}" class="v2-btn v2-btn-y" style="min-height: 52px; padding: 0 28px; font-size: 16px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Continuar</a>
+            </sc-if>
+            <sc-if value="{{prog.nextIsVid}}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{prog.nextOpen}}" class="v2-btn v2-btn-y" style="min-height: 52px; padding: 0 28px; font-size: 16px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Continuar</button>
+            </sc-if>
+            <a href="#aulas" class="v2-btn v2-btn-g" style="min-height: 52px; padding: 0 24px; font-size: 16px">Ver as aulas</a>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </header>
+
+  <main style="position: relative; z-index: 3; display: flex; flex-direction: column; gap: 52px; margin-top: -40px; padding-bottom: 40px; height: 1872px">
+
+    <!-- Antes de começar -->
+    <section id="antes" aria-labelledby="h-antes">
+      <h2 id="h-antes" style="margin: 0 4vw 12px; font-size: 18px; font-weight: 600; color: #DCE7F7">Antes de começar <span style="font-size: 14px; font-weight: 400; color: #9FB3D6">· assista nesta ordem</span></h2>
+      <div class="v2-g3">
+        <a href="#" class="v2-big" aria-label="O pacto: nada de IA gratuita no escritório, em breve">
+          <span class="v2-bt" style="background: linear-gradient(135deg, #6431E2 0%, #002D72 100%); display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v7c0 5.2-3.4 8.7-8 10-4.6-1.3-8-4.8-8-10V5z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span class="v2-bn">1</span><span class="v2-bd">Em breve</span></span>
+          <span class="v2-bx"><span class="v2-bk">O PACTO · CARLOS LUVISETTO</span><span class="v2-bh">Nada de IA gratuita no escritório</span><span class="v2-bp">O combinado antes de colocar dados de clientes na IA.</span></span>
+        </a>
+        <a href="#conceitos" class="v2-big" aria-label="Nunca usou IA? 18 vídeos curtos de Claude e ChatGPT, opcional">
+          <span class="v2-bt" style="background: linear-gradient(135deg, #6431E2 0%, #002D72 100%); display: flex; align-items: center; justify-content: center"><span class="v2-bn">2</span><svg viewBox="0 0 48 40" width="54" height="45" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="2" width="30" height="20" rx="3.5" opacity="0.35"></rect><rect x="9" y="7" width="30" height="20" rx="3.5" opacity="0.6"></rect><rect x="4" y="12" width="30" height="20" rx="3.5" fill="#4B2BB8"></rect><path d="M16 17.5v9l7.5-4.5z" fill="#FFFFFF"></path></svg><span class="v2-bd">Opcional</span></span>
+          <span class="v2-bx"><span class="v2-bk">PARA QUEM ESTÁ COMEÇANDO</span><span class="v2-bh">Nunca usou IA? Comece pelos conceitos</span><span class="v2-bp">Claude, ChatGPT e o básico de IA, em vídeos de até 3 minutos.</span></span>
+        </a>
+        <a href="/aulas/conecte-o-nibo" class="v2-big" aria-label="Conecte o Nibo à sua IA, opcional, 7 minutos">
+          <span class="v2-bt"><img src="/assets/mcp-player.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"><span class="v2-bn">3</span><span class="v2-bd">Opcional · 7 min</span><sc-if value="{{seen.mcp}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistido</span></sc-if><span class="v2-bplay" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></span>
+          <span class="v2-bx"><span class="v2-bk">MCP DO NIBO · CARLOS LUVISETTO</span><span class="v2-bh">Conecte o Nibo à sua IA</span><span class="v2-bp">O que é MCP e como ligar o Nibo ao Claude ou ao ChatGPT.</span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Aulas por setor -->
+    <section id="aulas" aria-labelledby="h-aulas">
+      <h2 id="h-aulas" style="margin: 0 4vw 4px; font-size: 32px; font-weight: 600">Aulas por setor <span style="font-size: 14px; font-weight: 400; color: #9FB3D6">· uma tarefa real em cada aula</span></h2>
+      <div class="v2-grid" style="padding-top: 24px">
+<div class="v2-top"><span class="v2-num" aria-hidden="true">1</span>
+      <div class="v2-card">
+        <div class="v2-thumb {{seenCls.fiscal}}"><sc-if value="{{seen.fiscal}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
+          <img src="/assets/vert-fiscal.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-fiscal.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 1 · 31 min</span>
+            <span class="v2-s">Fiscal</span>
+            <span class="v2-mt">Do PGDAS ao relatório consultivo</span>
+            <span class="v2-md">O extrato que você já gera vira um relatório de 1 página para o empresário, salvo como skill e enviado à conferência do Nibo.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/aulas/fiscal" class="v2-btn v2-btn-y" aria-label="Assistir aula 1: Fiscal"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-1-fiscal.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">2</span>
+      <div class="v2-card">
+        <div class="v2-thumb {{seenCls.contabil}}"><sc-if value="{{seen.contabil}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
+          <img src="/assets/vert-contabil.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-contabil.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          <span class="v2-new">NOVA</span>
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 2 · 37 min</span>
+            <span class="v2-s">Contábil</span>
+            <span class="v2-mt">Do balancete ao painel do empresário</span>
+            <span class="v2-md">Indicadores de lucro, caixa e endividamento num painel de 10 telas, sem termos técnicos, pronto para a reunião.</span>
+            <span class="v2-mp">Com Mauro Juliani</span>
+            <span class="v2-ma"><a href="/aulas/contabil" class="v2-btn v2-btn-y" aria-label="Assistir aula 2: Contábil"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-2-contabil.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">3</span>
+      <div class="v2-card">
+        <div class="v2-thumb {{seenCls.dp}}"><sc-if value="{{seen.dp}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
+          <img src="/assets/vert-dp.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-dp.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 3 · 18 min</span>
+            <span class="v2-s">DP</span>
+            <span class="v2-mt">Do cartão ponto ao arquivo da folha</span>
+            <span class="v2-md">A IA apura a jornada com as regras da convenção e gera o arquivo de importação, com espelho de conferência.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/aulas/dp" class="v2-btn v2-btn-y" aria-label="Assistir aula 3: DP"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-3-dp.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">4</span>
+      <div class="v2-card">
+        <div class="v2-thumb {{seenCls.societario}}"><sc-if value="{{seen.societario}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
+          <img src="/assets/vert-societario.jpg" alt="" class="v2-img">
+          <img src="/assets/prev-societario.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <span class="v2-info">
+            <span class="v2-k">AULA 4 · 28 min</span>
+            <span class="v2-s">Societário</span>
+            <span class="v2-mt">Do WhatsApp à minuta do contrato</span>
+            <span class="v2-md">Constituição e alteração contratual: a IA lê conversa, formulário e anexos e monta a minuta para conferência.</span>
+            <span class="v2-mp">Com Mauro Juliani</span>
+            <span class="v2-ma"><a href="/aulas/societario" class="v2-btn v2-btn-y" aria-label="Assistir aula 4: Societário"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-4-societario.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
+<div class="v2-top"><span class="v2-num" aria-hidden="true">5</span>
+      <div class="v2-card v2-off"><div class="v2-thumb v2-locked"><span class="v2-lk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span>
+        <span class="v2-info"><span class="v2-k">AULA 5</span><span class="v2-s">Financeiro</span><span class="v2-md">Em produção. Avisamos quando estrear.</span></span></div></div></div>
+      </div>
+    </section>
+
+    <!-- Conceitos -->
+    <section id="conceitos" aria-labelledby="h-conc">
+      <h2 id="h-conc" style="margin: 0 4vw 6px; font-size: 26px; font-weight: 600">Comece por aqui&nbsp;&nbsp;<span style="font-size: 14px; font-weight: 400; color: rgb(159, 179, 214)">· vídeos curtos por ferramenta</span></h2>
+      <p style="margin: 0 4vw 18px; font-size: 14px; color: #C9D6EC">Escolha a IA que o seu escritório usa. Os vídeos de Geral valem para as duas.</p>
+      <div role="tablist" aria-label="Ferramenta" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 4vw 18px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="{{t.style}}"><span>{{t.name}}</span><span style="{{t.countStyle}}">{{t.count}}</span></button>
+        </sc-for>
+        <span style="margin-left: 6px; font-size: 14px; color: #9FB3D6">{{tabBy}}</span>
+      </div>
+      <div class="v2-g4">
+        <sc-for list="{{vids}}" as="v" hint-placeholder-count="8">
+          <button type="button" onClick="{{v.open}}" class="v2-mini v2-st v2-vbtn {{v.cls}}" aria-label="{{v.aria}}"><sc-if value="{{v.seen}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistido</span></sc-if><span class="np-gl" aria-hidden="true"><svg class="np-orb" viewBox="0 0 160 160" aria-hidden="true"><g class="o o1"><circle cx="80" cy="80" r="35" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".95"></circle><circle cx="115" cy="80" r="2.2" fill="#7FA6FF"></circle></g><g class="o o2"><circle cx="80" cy="80" r="51" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".75"></circle><circle cx="80" cy="29" r="2" fill="#7FA6FF"></circle></g><g class="o o3"><circle cx="80" cy="80" r="68" fill="none" stroke="#1A5BD6" stroke-width="1" opacity=".55"></circle><circle cx="12" cy="80" r="1.8" fill="#7FA6FF"></circle></g></svg><span class="np-gl-f"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#FFFFFF" fill-rule="{{v.fr}}" d="{{v.ic}}"></path><path fill="none" stroke="#FFFFFF" stroke-width="1.6" d="{{v.ic2}}"></path></svg></span></span><span class="v2-mn">{{v.n}}</span><span class="v2-mx">{{v.t}}</span><span class="v2-mf">{{v.d}}</span><span class="v2-mpl"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span></button>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Nibo + IA e A Fonte -->
+    <section id="nibo" style="margin: 0 4vw; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; align-items: stretch">
+
+      <!-- Oferta: Ecossistema Nibo -->
+      <div aria-labelledby="h-oferta" style="position: relative; overflow: hidden; border-radius: 20px; padding: 28px 30px; background: linear-gradient(120deg, #6431E2 0%, #3B23A8 45%, #002D72 100%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 34px rgba(0,0,0,0.35); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px">
+        <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #F2F5FA">OFERTA POR TEMPO LIMITADO</span>
+          <h3 id="h-oferta" style="margin: 8px 0 0 0; font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 26px; line-height: 1.12; font-weight: 400; letter-spacing: -0.3px">Coloque em prática no seu escritório o que você viu nas aulas</h3>
+          <ul style="list-style: none; margin: 14px 0 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45; color: #FFFFFF">
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFE800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px"><path d="M5 12l5 5L20 7"></path></svg><span style="display: flex; flex-direction: column; gap: 2px"><strong>Nibo Obrigações</strong><span>Prazos, guias e conferência de todos os clientes num só lugar.</span></span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFE800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px"><path d="M5 12l5 5L20 7"></path></svg><span style="display: flex; flex-direction: column; gap: 2px"><strong>MCP do Nibo</strong><span>A IA consulta e trabalha no Nibo por você, como nas aulas.</span></span></li>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px">
+            <a href="https://www.nibo.com.br/mcp-contador?utm_source=nibo-play&amp;utm_medium=plataforma&amp;utm_campaign=curso-ia-para-contadores&amp;utm_content=oferta-quero-aproveitar" target="_blank" rel="noopener" class="v2-btn v2-btn-y" style="justify-content: center; gap: 10px; min-height: 46px; padding: 0 22px; font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap">Quero aproveitar<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+            
+          </div>
+        </div>
+        <div aria-hidden="true" style="flex: 0 0 auto; margin: 0 auto; position: relative; width: 156px; height: 156px"><span style="position: absolute; left: 50%; top: 50%; width: 400px; height: 300px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255,232,0,0.16) 0%, rgba(255,232,0,0) 100%); pointer-events: none"></span><svg viewBox="0 0 180 180" width="156" height="156" style="position: relative; display: block; overflow: visible; filter: drop-shadow(0 14px 26px rgba(1,15,39,0.45))"><circle cx="90" cy="90" r="89" fill="#FFE800"></circle><circle cx="90" cy="90" r="58" fill="none" stroke="rgba(0,45,114,0.3)" stroke-width="1"></circle><defs><path id="v2-seal-path" d="M90,90 m-71,0 a71,71 0 1,1 142,0 a71,71 0 1,1 -142,0"></path></defs><g class="v2-seal-ring"><text font-family="Poppins, system-ui, sans-serif" font-size="12" font-weight="700" fill="#002D72" letter-spacing="1"><textPath href="#v2-seal-path" textLength="440" lengthAdjust="spacing">COMECE A USAR AGORA E SÓ PAGUE DEPOIS • </textPath></text></g></svg><span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #002D72; text-align: center; font-size: 15px"><span style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.2px; line-height: 1; margin-top: 6px; margin-bottom: 4px">1º MÊS SÓ EM</span><span style="font-size: 34px; font-weight: 800; line-height: 0.85; letter-spacing: -1.5px">60</span><span style="font-size: 11.5px; font-weight: 800; letter-spacing: 1.6px; padding-left: 1.6px; line-height: 1; margin-top: 4px">DIAS</span></span></div>
+        <p style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Sua primeira mensalidade só em 60 dias. Comece a usar agora e só pague depois.</p>
+      </div>
+
+      <!-- Parceria A Fonte (secundário) -->
+      <div class="v2-fonte" style="border-radius: 20px; padding: 28px 30px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; justify-content: center; gap: 18px">
+        <div style="min-width: 0; max-width: 420px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #9FB3D6">PARCERIA NIBO + A FONTE</span>
+          <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.12">Continue aprendendo IA com a Comunidade A Fonte</span>
+          <span style="font-size: 13.5px; line-height: 1.5; color: #C9D6EC">Cursos com certificado e lives gratuitas às quartas, das 9h às 12h. Condições especiais para usuários Nibo.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-g">Quartas grátis</a></div>
+      </div>
+    </section>
+
+    <footer style="margin: 8px 4vw 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #9FB3D6">
+      <span>Nibo Play · conteúdos atualizados conforme as ferramentas evoluem.</span>
+      <span>Dados das aulas são fictícios ou anonimizados.</span>
+    </footer>
+  </main>
+
+  <!-- Player dos vídeos curtos (YouTube): pop-up com setas -->
+  <sc-if value="{{hasVideo}}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="{{video.t}}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; background: rgba(1,10,28,0.92)">
+      <div style="width: 100%; max-width: min(1320px, calc((100vh - 190px) * 16 / 9 + 144px)); display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 72px" class="v2-modal-top">
+          <div style="min-width: 0; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: #FFE800">{{video.k}}</span>
+            <span style="font-size: 22px; font-weight: 600; line-height: 1.25; color: #FFFFFF">{{video.t}}</span>
+          </div>
+          <button type="button" onClick="{{closeVideo}}" aria-label="Fechar vídeo" class="v2-modal-x" style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+          </button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px">
+          <button type="button" onClick="{{prevVideo}}" aria-label="Vídeo anterior: {{video.prevT}}" class="v2-nav v2-nav-s" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+          <iframe src="{{video.src}}" title="{{video.t}}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="display: block; flex: 1 1 auto; min-width: 0; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 20px; background: #000814"></iframe>
+          <button type="button" onClick="{{nextVideo}}" aria-label="Próximo vídeo: {{video.nextT}}" class="v2-nav v2-nav-s" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+        </div>
+        <sc-if value="{{showInvite}}" hint-placeholder-val="{{ false }}">
+          <div class="v2-inv" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 14px 16px 14px 20px; border-radius: 16px; background: linear-gradient(120deg, #6431E2 0%, #002D72 100%); border: 1px solid rgba(255,255,255,0.18)">
+            <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+              <span style="font-size: 15px; font-weight: 600; color: #FFFFFF">Este vídeo faz parte do curso gratuito IA para Contadores</span>
+              <span style="font-size: 13px; color: #E4DBFB">Inscreva-se para receber as aulas por setor e os materiais com os prompts.</span>
+            </span>
+            <button type="button" onClick="{{openSignup}}" class="v2-btn v2-btn-y" style="flex: 0 0 auto">Inscreva-se grátis</button>
+          </div>
+        </sc-if>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 0 72px" class="v2-modal-bot">
+          <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 14px; color: #C9D6EC"><span>{{video.pos}} · próximo: <strong style="color: #FFFFFF; font-weight: 600">{{video.nextT}}</strong></span><button type="button" onClick="{{toggleSeen}}" class="v2-link-x" style="font-size: 13px">{{video.seenLabel}}</button></span>
+          <a href="{{video.watch}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #B8CCEA; text-decoration: none">O vídeo não carregou? Assistir no YouTube<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></a>
+        </div>
+        <div class="v2-nav-b" style="align-items: center; justify-content: center; gap: 16px">
+          <button type="button" onClick="{{prevVideo}}" aria-label="Vídeo anterior: {{video.prevT}}" class="v2-nav" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+          <button type="button" onClick="{{nextVideo}}" aria-label="Próximo vídeo: {{video.nextT}}" class="v2-nav" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <!-- Convite de inscrição (quem chegou por link compartilhado) -->
+  <sc-if value="{{signup.open}}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="h-insc" style="position: fixed; inset: 0; z-index: 110; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; background: rgba(1,10,28,0.88); overflow-y: auto">
+      <div style="width: 100%; max-width: 520px; box-sizing: border-box; border-radius: 24px; background: #FFFFFF; color: #002D72; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 70px rgba(0,10,40,0.45)">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #6431E2">CURSO GRATUITO · NIBO PLAY</span>
+            <h2 id="h-insc" style="margin: 0; font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 28px; line-height: 1.1; font-weight: 400">Continue aprendendo IA para o seu escritório contábil</h2>
+          </div>
+          <button type="button" onClick="{{signup.close}}" aria-label="Fechar" style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #C9D6EA; background: #FFFFFF; color: #002D72; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+        </div>
+        <sc-if value="{{signup.form}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 12px"><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #33507F">Inscreva-se para assistir às aulas por setor, baixar os materiais com os prompts e acompanhar o seu progresso.</p><div id="hs-form-convite" class="np-hs-form"></div><button type="button" onClick="{{signup.close}}" style="align-self: center; min-height: 40px; border: 0; background: none; color: #33507F; font-family: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Agora não</button></div>
+        </sc-if>
+        <sc-if value="{{signup.done}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #33507F"><strong style="color: #002D72">Inscrição confirmada.</strong> Agora é só seguir pela série: comece pelas aulas por setor ou continue nos vídeos curtos.</p>
+            <a href="#aulas" onClick="{{signup.close}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #FFE800; color: #002D72; text-decoration: none; font-size: 16px; font-weight: 600">Ver as aulas</a>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</template>
+<script src="/js/preact.min.js"></script>
+<script src="/js/dc-runtime.js"></script>
+<script src="/js/inscricao.js"></script>
+<script>
+const SEEN_KEY = 'niboPlay.assistidos';
+const SIGNED_KEY = 'niboPlay.inscrito';
+// Aulas longas: ID do YouTube e página do episódio, na ordem da série
+const EPS = [
+  { k: 'mcp', id: 'XPdWuSpCHJQ', t: 'Conecte o Nibo à sua IA', href: '/aulas/conecte-o-nibo' },
+  { k: 'fiscal', id: 'qJQJcHYiydM', t: 'Aula 1 · Fiscal', href: '/aulas/fiscal' },
+  { k: 'contabil', id: 'NxHKPeS0gtM', t: 'Aula 2 · Contábil', href: '/aulas/contabil' },
+  { k: 'dp', id: 'dZsbJh-9TnU', t: 'Aula 3 · DP', href: '/aulas/dp' },
+  { k: 'societario', id: 'Kxnx7axo9ZE', t: 'Aula 4 · Societário', href: '/aulas/societario' }
+];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tool: 'claude', video: null, seen: this.readSeen(), fromLink: false, signupOpen: false, signupDone: false, signupAsked: false, f: { nome: '', email: '', whats: '', usa: '', clientes: '' }, err: '' };
+  }
+  readSeen() { try { const a = JSON.parse(window.localStorage.getItem(SEEN_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  writeSeen(list) { try { window.localStorage.setItem(SEEN_KEY, JSON.stringify(list)); } catch (e) {} this.setState({ seen: list }); }
+  markSeen(id, on) { const list = this.readSeen().filter((x) => x !== id); if (on) list.push(id); this.writeSeen(list); }
+  // Link próprio por vídeo curto: #claude-3, #chatgpt-1, #geral-2
+  openVideo(tool, i, id) {
+    this.setState({ video: { tool, i }, tool });
+    if (id) this.markSeen(id, true);
+    try { window.history.replaceState(null, '', '#' + tool + '-' + (i + 1)); } catch (e) {}
+  }
+  isSigned() { try { return window.localStorage.getItem(SIGNED_KEY) === '1'; } catch (e) { return false; } }
+  openSignup() { this.setState({ video: null, signupOpen: true, signupAsked: true }); }
+  // Envio da inscrição. Na Vercel, o formulário é o embed do HubSpot "Marketing | Conteúdos - Contador" (ver hubspot-inscricao.js);
+  // esta validação local só vale para o protótipo no canvas.
+  submitSignup(e) {
+    try { e && e.preventDefault && e.preventDefault(); } catch (x) {}
+    const f = this.state.f;
+    if (!f.nome.trim()) return this.setState({ err: 'Informe o seu nome.' });
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim())) return this.setState({ err: 'Informe um e-mail válido.' });
+    if (f.whats.replace(/\D/g, '').length < 10) return this.setState({ err: 'Informe o WhatsApp com DDD.' });
+    const dados = { ...f, origem: 'link-compartilhado', video: (window.location && window.location.hash) || '' };
+    if (typeof window.niboPlayInscricao === 'function') { try { window.niboPlayInscricao(dados); } catch (x) {} }
+    try { window.localStorage.setItem(SIGNED_KEY, '1'); } catch (x) {}
+    this.setState({ err: '', signupDone: true });
+  }
+  closeVideo() {
+    const ask = this.state.fromLink && !this.state.signupAsked && !this.isSigned();
+    this.setState({ video: null, signupOpen: ask, signupAsked: this.state.signupAsked || ask });
+    try { window.history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+  }
+  openFromHash() {
+    let h = '';
+    try { h = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    const m = /^(claude|chatgpt|geral)-(\d+)$/.exec(h);
+    if (!m) return;
+    const items = this.T()[m[1]].items; const i = Number(m[2]) - 1;
+    if (items[i] && items[i][2]) { this.setState({ fromLink: true }); this.openVideo(m[1], i, items[i][2]); }
+  }
+  componentDidMount() {
+    this.onHash = () => this.openFromHash();
+    this.onShow = () => this.setState({ seen: this.readSeen() });
+    try { window.addEventListener('hashchange', this.onHash); window.addEventListener('pageshow', this.onShow); } catch (e) {}
+    this.openFromHash();
+  }
+  componentWillUnmount() {
+    try { window.removeEventListener('hashchange', this.onHash); window.removeEventListener('pageshow', this.onShow); } catch (e) {}
+  }
+  T() {
+    // [título, duração, ID do vídeo no YouTube] · playlist "Curso de IA para Contadores Nibo"
+    return {
+      claude: { name: 'Claude', by: 'com Sthephany Talasca', items: [
+        ['O básico do Claude','1:34','xYUyn_baiWQ'],['Perguntar ou pedir','0:34','PbrpLf-MvQI'],['Como fazer um bom pedido','2:20','BdhVHmmAF2U'],['Conectores','1:51','RWZCpluu9O0'],
+        ['Tarefas agendadas','2:59','R_3FcRaOYaA'],['Projetos','1:55','HlObc4nApo4'],['Skills','2:08','z3G8Xi7u4eE'],['Artefatos','2:24','cL_VJsuNmJ8']] },
+      chatgpt: { name: 'ChatGPT', by: 'com Bianca Lisboa', items: [
+        ['O básico do ChatGPT','1:01','N888lujsEK4'],['Como fazer um bom pedido','1:39','_zIvjg6fW7U'],['Criando uma tarefa agendada','2:46','evT_HrGZv14'],['Conferindo a tarefa agendada','2:02','FyBgqh2S4D4'],
+        ['Projetos','2:59','6nKXpdGKhtc'],['Skills: o que são','1:48','rTP2MKXgJf4'],['Skills na prática','2:37','eX2l2HBKtgo'],['Aplicativos conectados e MCP','3:04','scIHlATjcmI']] },
+      geral: { name: 'Geral', by: 'vale para Claude e ChatGPT', items: [['Agentes','0:45','zGCNkYsyMnk'],['Dados de clientes na IA','0:57','f6AbNj0R3H4']] }
+    };
+  }
+  renderVals() {
+    const T = this.T();
+    const cur = this.state.tool;
+    const tabs = Object.keys(T).map((k) => {
+      const on = k === cur;
+      return {
+        name: T[k].name,
+        count: String(T[k].items.length),
+        sel: on ? 'true' : 'false',
+        pick: () => this.setState({ tool: k }),
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: ' + (on ? '700' : '500') + '; border: 1px solid ' + (on ? '#FFE800' : 'rgba(255,255,255,0.22)') + '; background: ' + (on ? '#FFE800' : 'rgba(255,255,255,0.06)') + '; color: ' + (on ? '#002D72' : '#FFFFFF'),
+        countStyle: 'display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; font-size: 12px; font-weight: 700; background: ' + (on ? 'rgba(0,45,114,0.15)' : 'rgba(255,255,255,0.14)')
+      };
+    });
+    const IC = {"pedir": {"ic": "M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z", "fr": "evenodd", "ic2": "M0 0"}, "pedido": {"ic": "M15.2 3.8l5 5L9 20H4v-5z", "fr": "evenodd", "ic2": "M0 0"}, "proj": {"ic": "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z", "fr": "evenodd", "ic2": "M0 0"}, "art": {"ic": "M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M8 11h8v2H8z M8 15h5v2H8z", "fr": "evenodd", "ic2": "M0 0"}, "skill": {"ic": "M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z", "fr": "evenodd", "ic2": "M0 0"}, "mcp": {"ic": "M8 2h2.4v6H8z M13.6 2h2.4v6h-2.4z M6 9h12v3a6 6 0 0 1-4.8 5.9V22h-2.4v-4.1A6 6 0 0 1 6 12z", "fr": "evenodd", "ic2": "M0 0"}, "agente": {"ic": "M5 8h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z M11 3h2v5h-2z M8 12.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0z M13 12.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0z", "fr": "evenodd", "ic2": "M0 0"}, "claude": {"ic": "M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z", "fr": "evenodd", "ic2": "M0 0"}, "gpt": {"ic": "M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z", "fr": "evenodd", "ic2": "M0 0"}, "dados": {"ic": "M12 2l8 3v7c0 5.2-3.4 8.7-8 10-4.6-1.3-8-4.8-8-10V5z M10.6 15.4l-3.3-3.3 1.4-1.4 1.9 1.9 4.6-4.6 1.4 1.4z", "fr": "evenodd", "ic2": "M0 0"}, "clock": {"ic": "M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20z M12 4.2a7.8 7.8 0 1 1 0 15.6a7.8 7.8 0 1 1 0-15.6z M11 7h2v5.4l3.7 2.2-1 1.7-4.7-2.8z", "fr": "evenodd", "ic2": "M0 0"}};
+    const pickIc = (t) => { const x = t.toLowerCase();
+      if (x.includes('claude')) return IC.claude; if (x.includes('chatgpt')) return IC.gpt;
+      if (x.includes('bom pedido')) return IC.pedido; if (x.includes('perguntar')) return IC.pedir;
+      if (x.includes('agendada')) return IC.clock; if (x.includes('projeto')) return IC.proj;
+      if (x.includes('skill')) return IC.skill; if (x.includes('artefato')) return IC.art;
+      if (x.includes('conector') || x.includes('mcp')) return IC.mcp; if (x.includes('agente')) return IC.agente;
+      if (x.includes('dados')) return IC.dados; return IC.pedir; };
+    const seenList = this.state.seen;
+    const isSeen = (id) => !!id && seenList.indexOf(id) > -1;
+    const vids = T[cur].items.map(([t, d, id], i) => ({
+      n: String(i + 1), t, d, ...pickIc(t),
+      seen: isSeen(id), cls: isSeen(id) ? 'is-seen' : '',
+      aria: id ? 'Assistir ' + t + ', ' + d + (isSeen(id) ? ', assistido' : '') : t + ', em breve',
+      open: () => { if (id) this.openVideo(cur, i, id); }
+    }));
+    // Vídeo aberto no pop-up: setas passam pelos vídeos da mesma ferramenta (dão a volta no fim)
+    const sv = this.state.video;
+    let video = { t: '', k: '', src: 'about:blank', watch: '#', pos: '', prevT: '', nextT: '', seenLabel: '' };
+    let curId = '';
+    if (sv) {
+      const list = T[sv.tool].items.map((it, i) => ({ it, i })).filter((x) => x.it[2]);
+      const at = Math.max(0, list.findIndex((x) => x.i === sv.i));
+      const [t, d, id] = list[at].it; curId = id;
+      const prev = list[(at - 1 + list.length) % list.length];
+      const next = list[(at + 1) % list.length];
+      video = {
+        t, k: T[sv.tool].name.toUpperCase() + ' · ' + d,
+        src: 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1',
+        watch: 'https://youtu.be/' + id,
+        pos: 'Vídeo ' + (at + 1) + ' de ' + list.length,
+        prevT: prev.it[0], nextT: next.it[0],
+        seenLabel: isSeen(id) ? 'Desmarcar como assistido' : 'Marcar como assistido',
+        goPrev: () => this.openVideo(sv.tool, prev.i, prev.it[2]),
+        goNext: () => this.openVideo(sv.tool, next.i, next.it[2])
+      };
+    }
+    // Progresso: aulas longas na ordem da série, depois os vídeos curtos (Claude, ChatGPT, Geral)
+    const all = EPS.map((e) => ({ id: e.id, t: e.t, href: e.href }));
+    Object.keys(T).forEach((tool) => T[tool].items.forEach(([t, d, id], i) => { if (id) all.push({ id, t: T[tool].name + ' · ' + t, tool, i }); }));
+    const done = all.filter((x) => isSeen(x.id)).length;
+    const nxt = all.find((x) => !isSeen(x.id));
+    const prog = {
+      done: String(done), total: String(all.length),
+      none: done === 0, some: done > 0,
+      fillStyle: 'width: ' + Math.round((done / all.length) * 100) + '%',
+      hasNext: !!nxt, allDone: !nxt, nextT: nxt ? nxt.t : '',
+      nextIsEp: !!(nxt && nxt.href), nextIsVid: !!(nxt && !nxt.href),
+      nextHref: nxt && nxt.href ? nxt.href : '#aulas',
+      nextOpen: () => { if (nxt && !nxt.href) this.openVideo(nxt.tool, nxt.i, nxt.id); }
+    };
+    const setF = (k) => (e) => { const v = e && e.target ? e.target.value : e; this.setState({ f: { ...this.state.f, [k]: v } }); };
+    const seen = {}; const seenCls = {};
+    EPS.forEach((e) => { seen[e.k] = isSeen(e.id); seenCls[e.k] = isSeen(e.id) ? 'is-seen' : ''; });
+    return { tabs, vids, tabBy: T[cur].by, video, hasVideo: !!sv, prog, seen, seenCls,
+      prevVideo: () => video.goPrev && video.goPrev(), nextVideo: () => video.goNext && video.goNext(),
+      toggleSeen: () => { if (curId) this.markSeen(curId, !isSeen(curId)); },
+      closeVideo: () => this.closeVideo(),
+      showInvite: !!sv && this.state.fromLink && !this.state.signupDone && !this.isSigned(),
+      openSignup: () => this.openSignup(),
+      signup: {
+        open: this.state.signupOpen, form: !this.state.signupDone, done: this.state.signupDone,
+        nome: this.state.f.nome, email: this.state.f.email, whats: this.state.f.whats, usa: this.state.f.usa, clientes: this.state.f.clientes,
+        setNome: setF('nome'), setEmail: setF('email'), setWhats: setF('whats'), setUsa: setF('usa'), setClientes: setF('clientes'),
+        hasErr: !!this.state.err, err: this.state.err,
+        submit: (e) => this.submitSignup(e),
+        close: () => this.setState({ signupOpen: false })
+      } };
+  }
+}
+Component.prototype.componentDidUpdate = function () {
+  var self = this;
+  if (document.getElementById('hs-form-convite')) {
+    niboInscricao('#hs-form-convite', { onDone: function () { self.setState({ signupDone: true }); } });
+  }
+};
+NiboDC.mount(Component);
+
+</script>
+</body>
+</html>

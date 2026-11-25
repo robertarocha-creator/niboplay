@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nibo Play · Aula 3 · DP</title>
+<meta name="description" content="Carlos Luvisetto pega o espelho de ponto de um funcionário e, com o Claude, apura a jornada com as regras da convenção. Depois, gera o arquivo no layout do sistema de folha, com…">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Nibo Play">
+<meta property="og:title" content="Nibo Play · Aula 3 · DP">
+<meta property="og:description" content="Carlos Luvisetto pega o espelho de ponto de um funcionário e, com o Claude, apura a jornada com as regras da convenção. Depois, gera o arquivo no layout do sistema de folha, com…">
+<meta property="og:image" content="/assets/dp-player.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#021E49">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#010F27}
+a{color:#41B6E6}a:hover{color:#FFFFFF}
+.np-player{background:linear-gradient(180deg,rgba(2,30,73,0) 45%,rgba(2,30,73,0.85) 100%),url(/assets/dp-player.jpg) center / cover no-repeat}
+.ep-cap{transition:background .2s ease}
+.ep-cap:hover,.ep-cap:focus-visible{background:rgba(255,255,255,.07)}
+.ep-cap:hover .ep-cap-t,.ep-cap:focus-visible .ep-cap-t{color:#FFE800}
+.ep-cap:focus-visible,.ep-seen:focus-visible{outline:2px solid #FFE800;outline-offset:2px}
+.ep-cap-p{opacity:0;transition:opacity .2s ease}
+.ep-cap:hover .ep-cap-p,.ep-cap:focus-visible .ep-cap-p{opacity:1}
+</style>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div id="root">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: rgb(255, 255, 255); background-color: rgb(1, 15, 39); background-image: radial-gradient(900px 600px at 18% -80px, rgba(100, 49, 226, 0.38) 0%, rgba(100, 49, 226, 0.12) 45%, rgba(100, 49, 226, 0) 75%), radial-gradient(700px 500px at 85% 120px, rgba(0, 114, 206, 0.18) 0%, rgba(0, 114, 206, 0) 70%); background-repeat: no-repeat; min-height: 100vh; box-sizing: border-box; padding: 0px 40px 48px;">
+
+
+<header style="max-width: 1360px; margin: 0px auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0px;">
+  <div style="display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="98" height="24" style="display: block; flex: 0 0 auto;"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.910,71.90 292.05,71.23Z"></path></svg>
+    <span style="width: 1px; height: 22px; background: rgba(255, 255, 255, 0.4);"></span>
+    <span style="font-weight: 500;">Play</span>
+  </div>
+  <a href="/plataforma" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0px 18px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); color: rgb(255, 255, 255); text-decoration: none; font-size: 14px; font-weight: 500;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    Voltar ao catálogo
+  </a>
+</header>
+
+<p style="max-width: 1360px; margin: 32px auto 0px; font-size: 13px; color: rgb(184, 204, 234);">IA para Contadores: Do Zero ao Fluxo · <strong style="color: rgb(255, 255, 255); font-weight: 600;">Aula 3 de 5</strong></p>
+
+<div style="max-width: 1360px; margin: 20px auto 0px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+
+  
+  <main style="flex: 999 1 560px; min-width: 0px; display: flex; flex-direction: column; gap: 28px;">
+    
+    
+    
+      <button type="button" aria-label="Assistir a aula" class="np-player" style="aspect-ratio: 16 / 9; width: 100%; border-radius: 24px; padding: 0px; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 8, 30, 0.35) 0px 10px 30px; position: relative; display: flex; align-items: center; justify-content: center; font-family: inherit; color: rgb(255, 255, 255);">
+        <span style="position: absolute; left: 32px; bottom: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: rgb(220, 231, 247);">AULA 3 · DEPARTAMENTO PESSOAL</span>
+          <span style="font-family: Poppins, system-ui, sans-serif; font-size: 32px; font-weight: 600; line-height: 1.05; letter-spacing: -0.4px;">Do cartão ponto ao arquivo da folha</span>
+        </span>
+        <span style="position: absolute; right: 24px; bottom: 24px; padding: 5px 10px; border-radius: 8px; background: rgba(0, 0, 0, 0.35); font-size: 12px;">18 min</span>
+        <span style="width: 88px; height: 88px; border-radius: 999px; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 0px 16px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#6431E2" aria-hidden="true"><path d="M7 4v16l13-8z"></path></svg>
+        </span>
+      </button>
+    
+
+    
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px;">
+        <span style="padding: 6px 12px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); font-weight: 600;">DP</span>
+        <span style="padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.1);">18 min</span>
+        <span style="padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.1);">Claude + MCP do Nibo</span>
+      </div>
+      <h1 style="margin: 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: clamp(30px, 3vw, 42px); line-height: 1.05; font-weight: 400; max-width: 820px;">Do cartão ponto ao arquivo da folha</h1>
+      <p style="margin: 0px; max-width: 820px; font-size: 16px; line-height: 1.7; color: rgb(220, 231, 247);">Carlos Luvisetto pega o espelho de ponto de um funcionário e, com o Claude, apura a jornada com as regras da convenção. Depois, gera o arquivo no layout do sistema de folha, com um espelho de conferência linha a linha. No fim, salva tudo como a skill ponto-para-folha e, pelo MCP, cria a tarefa no Nibo com o arquivo anexado para o analista de DP.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+        
+        
+          <button type="button" class="ep-seen" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.06); color: rgb(255, 255, 255); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Marcar como assistida</button>
+        
+        <span style="font-size: 13px; color: rgb(159, 179, 214);">Clique num capítulo para ir direto ao trecho.</span>
+      </div>
+    </div>
+
+    
+    <section style="display: flex; flex-direction: column; gap: 0px;">
+      <h2 style="margin: 0px 0px 8px; font-family: Poppins, system-ui, sans-serif; font-size: 22px; line-height: 1.2; font-weight: 600; letter-spacing: -0.2px;">Nesta aula</h2>
+      
+        <button type="button" aria-label="Assistir a partir de 00:00: Abertura" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">00:00</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Abertura</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 02:20: As 5 etapas: do cartão ponto ao arquivo da folha" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">02:20</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">As 5 etapas: do cartão ponto ao arquivo da folha</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 02:55: Etapa 1: a IA lê o espelho de ponto e a escala" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">02:55</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Etapa 1: a IA lê o espelho de ponto e a escala</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 05:35: Etapa 2: a apuração com as regras da convenção" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">05:35</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Etapa 2: a apuração com as regras da convenção</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 08:15: Critérios, apuração dia a dia e totais do mês" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">08:15</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Critérios, apuração dia a dia e totais do mês</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 09:20: Etapa 3: o arquivo de importação da folha" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">09:20</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Etapa 3: o arquivo de importação da folha</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 10:45: O espelho de conferência de cada linha" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">10:45</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">O espelho de conferência de cada linha</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 11:50: Etapa 4: a skill ponto-para-folha" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">11:50</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Etapa 4: a skill ponto-para-folha</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 13:55: Salvando e instalando a skill" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">13:55</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Salvando e instalando a skill</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 14:45: Etapa 5: a tarefa no Nibo pelo MCP" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">14:45</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Etapa 5: a tarefa no Nibo pelo MCP</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 16:45: A tarefa criada, com o arquivo anexado" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">16:45</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">A tarefa criada, com o arquivo anexado</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+        <button type="button" aria-label="Assistir a partir de 17:05: Encerramento" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0px -12px; padding: 10px 12px; border: 0px; border-radius: 12px; background: transparent; color: rgb(255, 255, 255); font-family: inherit; text-align: left; cursor: pointer;">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247); font-variant-numeric: tabular-nums;">17:05</span>
+          <span style="flex: 1 1 auto; min-width: 0px; font-size: 15px; line-height: 1.45;">Encerramento</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      
+    </section>
+  </main><aside style="flex: 1 1 340px; min-width: 0px; display: flex; flex-direction: column; gap: 24px; width: 321px;">
+
+    
+    <section style="border-radius: 24px; padding: 28px; background: linear-gradient(160deg, rgb(100, 49, 226) 0%, rgb(0, 45, 114) 110%); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 8, 30, 0.35) 0px 10px 30px; display: flex; flex-direction: column; gap: 14px;">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.1); font-size: 11px; font-weight: 600; letter-spacing: 1.5px;">MATERIAL DA AULA</span>
+      <h2 style="margin: 0px; font-size: 18px; line-height: 1.35; font-weight: 600;">Os prompts e o passo a passo da aula</h2>
+      <p style="margin: 0px; font-size: 14px; line-height: 1.6; color: rgb(228, 219, 251);">As 5 etapas, os prompts prontos para colar e o checklist antes de importar na folha. Livre para baixar, sem cadastro.</p>
+      <a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-3-dp.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; border-radius: 999px; background: rgb(255, 232, 0); color: rgb(0, 45, 114); text-decoration: none; font-size: 15px; font-weight: 600;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#002D72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+        Baixar material
+      </a>
+    </section>
+
+
+    
+    <a href="/aulas/societario" style="border-radius: 24px; padding: 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 8, 30, 0.35) 0px 10px 30px; text-decoration: none; color: rgb(255, 255, 255); display: flex; align-items: center; gap: 20px;">
+      <span style="flex: 0 0 148px; height: 112px; box-sizing: border-box; border-radius: 14px; padding: 14px 16px; background: linear-gradient(rgba(1, 15, 39, 0) 40%, rgba(1, 15, 39, 0.92) 100%), url(&quot;/assets/thumb-societario.jpg&quot;) 56% 20% / cover no-repeat; display: flex; align-items: flex-end;">
+        <span style="font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.05; letter-spacing: -0.3px;">Societário</span>
+      </span>
+      <span style="flex: 1 1 auto; min-width: 0px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.2px; color: rgb(220, 231, 247);">PRÓXIMA AULA · AULA 4</span>
+        <span style="font-size: 18px; line-height: 1.35; font-weight: 600;">Do WhatsApp à minuta do contrato</span>
+      </span>
+    </a>
+
+    
+    <section style="border-radius: 24px; padding: 24px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 8, 30, 0.35) 0px 10px 30px; display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; font-size: 22px; line-height: 1.1; font-weight: 400;">Parceria Nibo + A Fonte</h2>
+      <p style="margin: 0px; font-size: 14px; line-height: 1.6; color: rgb(220, 231, 247);">Cursos, conteúdo novo toda semana e grupo de membros, com condições especiais para usuários Nibo.</p>
+      <a href="https://lp.afonte.ia.br/" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0px 20px; border-radius: 999px; background: linear-gradient(135deg, rgb(100, 49, 226) 0%, rgb(100, 49, 226) 35%, rgb(0, 45, 114) 130%); color: rgb(255, 255, 255); text-decoration: none; font-size: 14px; font-weight: 600;">Conhecer a comunidade</a>
+      <a href="https://lp.afonte.ia.br/" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0px 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.5); color: rgb(255, 255, 255); text-decoration: none; font-size: 14px; font-weight: 600;">Participar das Quartas, grátis</a>
+    </section>
+  </aside>
+</div>
+</div>
+</div>
+<template id="dc-tpl">
+
+<div style="font-family: Poppins, system-ui, sans-serif; color: #FFFFFF; background-color: #010F27; background-image: radial-gradient(900px 600px at 18% -80px, rgba(100,49,226,0.38) 0%, rgba(100,49,226,0.12) 45%, rgba(100,49,226,0) 75%), radial-gradient(700px 500px at 85% 120px, rgba(0,114,206,0.18) 0%, rgba(0,114,206,0) 70%); background-repeat: no-repeat; min-height: 100vh; box-sizing: border-box; padding: 0 40px 48px 40px">
+
+<!-- Cabeçalho -->
+<header style="max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0">
+  <div style="display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; letter-spacing: -0.5px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 43 460 113" role="img" aria-label="nibo" width="98" height="24" style="display: block; flex: 0 0 auto"><path fill="#FFFFFF" fill-rule="evenodd" d="M39.33,155.99C32.25,155.25 25.55,150.30 22.23,143.35C15.09,128.42 26.03,111.15 42.62,111.15C47.46,111.15 52.59,112.86 56.37,115.75C57.53,116.64 60.46,119.72 61.21,120.84C64.31,125.48 65.58,130.67 65.01,136.25C63.96,146.51 55.56,155.01 45.50,156.00C42.83,156.27 41.91,156.26 39.33,155.99ZM129.75,155.98C123.90,155.35 117.84,151.57 114.32,146.38C112.16,143.18 111.17,140.51 110.65,136.56C110.29,133.74 110.29,133.39 110.75,130.47C111.01,128.77 111.42,126.76 111.65,126.00C111.99,124.90 112.08,123.56 112.09,119.25C112.11,113.53 111.98,112.64 110.46,108.50C107.55,100.60 101.44,94.16 93.50,90.65C91.50,89.76 88.68,88.99 85.62,88.49C81.37,87.79 78.60,86.85 75.88,85.18C74.96,84.61 71.88,82.05 71.11,81.21C64.79,74.34 63.46,63.96 67.80,55.40C70.72,49.65 77.42,44.75 83.70,43.77C85.95,43.43 89.97,43.42 91.89,43.77C96.31,44.56 100.57,46.81 103.80,50.06C108.86,55.14 111.03,61.65 110.12,68.99C109.92,70.61 109.58,72.35 109.36,72.86C109.15,73.38 108.85,75.35 108.69,77.25C108.15,83.73 109.17,89.39 111.81,94.59C113.12,97.17 115.94,100.93 118.04,102.89C119.72,104.47 123.02,107.00 123.39,107.00C123.48,107.00 123.85,107.20 124.21,107.45C126.08,108.74 131.14,110.54 134.12,110.99C141.41,112.09 145.50,114.04 149.56,118.36C151.40,120.32 153.99,124.45 154.00,125.45C154.00,125.63 154.18,126.11 154.39,126.53C154.94,127.58 155.49,131.23 155.49,133.75C155.49,136.26 154.96,139.75 154.37,141.14C152.02,146.65 149.42,149.92 145.25,152.63C140.67,155.60 135.85,156.64 129.75,155.98ZM434.62,143.38C430.65,142.56 428.60,141.84 424.89,140.00C417.50,136.32 411.88,130.71 408.07,123.21C406.19,119.52 405.33,116.96 404.51,112.69C403.96,109.81 403.81,103.25 404.25,101.00C405.03,96.92 405.26,95.91 405.85,94.12C408.91,84.87 416.11,76.52 424.69,72.26C428.29,70.47 432.21,69.16 435.25,68.73C436.28,68.58 437.80,68.36 438.62,68.24C439.45,68.11 440.94,68.01 441.95,68.01C444.26,68.00 450.18,68.88 452.06,69.52C452.85,69.78 453.67,70.00 453.87,70.00C454.07,70.00 454.77,70.24 455.43,70.53C456.09,70.83 457.13,71.28 457.75,71.55C458.88,72.04 459.08,72.13 460.72,73.05C466.93,76.52 472.77,82.68 475.95,89.12C476.49,90.22 477.02,91.41 477.12,91.75C477.23,92.09 477.39,92.49 477.50,92.62C477.60,92.76 477.94,93.72 478.25,94.75C482.14,107.65 479.28,121.09 470.51,131.16C468.85,133.07 465.57,136.04 463.96,137.10C463.52,137.39 462.91,137.79 462.60,138.00C461.28,138.89 459.12,140.02 456.25,141.33C454.82,141.98 452.36,142.74 450.30,143.15C449.24,143.37 447.93,143.64 447.38,143.76C446.82,143.88 444.35,143.97 441.88,143.97C438.19,143.96 436.88,143.85 434.62,143.38ZM334.26,142.33C327.18,142.28 321.31,142.16 321.20,142.05C321.00,141.85 320.91,52.26 321.10,52.06C321.27,51.90 338.49,51.96 338.76,52.13C338.91,52.22 339.00,55.59 339.00,61.01C339.00,67.82 339.07,69.76 339.31,69.79C339.48,69.81 344.01,69.85 349.38,69.87C358.13,69.91 359.44,69.97 362.25,70.46C369.56,71.73 374.32,73.71 379.12,77.49C381.83,79.61 383.18,80.93 385.11,83.38C388.21,87.29 389.92,90.40 391.44,94.88C392.73,98.65 393.12,101.37 393.10,106.25C393.08,111.17 392.75,113.31 391.38,117.42C389.47,123.14 385.83,128.79 381.36,132.97C379.46,134.74 375.57,137.43 373.50,138.40C372.88,138.69 371.97,139.12 371.48,139.36C370.99,139.59 370.20,139.88 369.73,140.00C369.26,140.12 368.37,140.38 367.75,140.58C362.41,142.27 358.26,142.49 334.26,142.33ZM198.05,141.95C197.82,141.72 197.75,133.61 197.75,106.98C197.75,77.24 197.80,72.27 198.11,72.01C198.38,71.79 203.41,71.74 218.92,71.81L239.38,71.89L241.62,72.48C243.99,73.09 247.29,74.14 247.97,74.50C248.19,74.61 249.05,75.02 249.88,75.41C250.70,75.80 251.66,76.30 252.00,76.52C252.34,76.75 253.28,77.35 254.08,77.86C261.80,82.82 267.37,91.12 269.53,100.88C270.07,103.31 270.08,103.89 270.18,122.30C270.26,135.83 270.21,141.36 270.01,141.73C269.74,142.24 269.57,142.25 261.15,142.25C254.38,142.25 252.50,142.18 252.29,141.92C252.10,141.70 252.00,135.87 251.94,122.86L251.87,104.12L251.21,102.36C249.72,98.33 247.04,94.82 243.88,92.79C242.42,91.84 241.12,91.25 239.00,90.55C237.16,89.95 236.95,89.94 226.88,89.84C221.24,89.78 216.48,89.83 216.31,89.95C216.05,90.12 215.99,95.28 216.00,115.86C216.00,134.69 215.93,141.66 215.72,141.91C215.33,142.38 198.52,142.42 198.05,141.95ZM286.81,142.04C286.37,141.76 286.34,86.12 286.78,85.59C287.19,85.09 303.80,85.08 304.22,85.59C304.62,86.07 304.63,141.42 304.22,141.91C303.99,142.19 302.36,142.25 295.53,142.25C290.91,142.24 286.98,142.15 286.81,142.04ZM446.22,125.50C447.40,125.22 448.71,124.83 449.12,124.64C449.54,124.44 450.27,124.10 450.75,123.88C454.58,122.15 458.25,118.33 460.11,114.14C462.36,109.06 462.35,102.66 460.09,97.96C456.59,90.71 449.70,86.25 442.00,86.25C432.67,86.25 424.83,92.50 422.59,101.74C421.32,106.94 422.28,112.20 425.37,117.00C429.73,123.78 438.40,127.31 446.22,125.50ZM361.88,123.54C368.02,121.52 372.17,117.53 374.28,111.62C375.03,109.52 375.23,104.29 374.64,101.99C372.93,95.27 367.62,90.15 360.66,88.50C358.71,88.03 357.83,88.00 348.84,88.06L339.12,88.12L339.06,105.85C339.01,119.39 339.07,123.66 339.30,123.93C339.55,124.24 341.12,124.28 349.86,124.20C359.77,124.11 360.19,124.09 361.88,123.54ZM292.05,71.23C287.83,69.69 285.16,66.31 284.84,62.08C284.56,58.50 285.46,55.78 287.71,53.41C291.26,49.67 296.98,49.02 301.45,51.84C302.82,52.71 304.61,54.80 305.41,56.45C306.04,57.75 306.10,58.13 306.11,60.88C306.12,63.77 306.10,63.93 305.30,65.58C303.99,68.28 301.80,70.20 298.84,71.24C296.94,71.91 293.910,71.90 292.05,71.23Z"></path></svg>
+    <span style="width: 1px; height: 22px; background: rgba(255,255,255,0.4)"></span>
+    <span style="font-weight: 500">Play</span>
+  </div>
+  <a href="/plataforma" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 500">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    Voltar ao catálogo
+  </a>
+</header>
+
+<p style="max-width: 1360px; margin: 32px auto 0 auto; font-size: 13px; color: #B8CCEA">IA para Contadores: Do Zero ao Fluxo · <strong style="color: #FFFFFF; font-weight: 600">Aula 3 de 5</strong></p>
+
+<div style="max-width: 1360px; margin: 20px auto 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+  <!-- Coluna principal -->
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+    <!-- Vídeo -->
+    <sc-if value="{{showVideo}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column"><iframe src="{{videoSrc}}" referrerpolicy="strict-origin-when-cross-origin" title="Aula 3 · Departamento Pessoal" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 24px; background: #000814"></iframe>
+      <a href="https://youtu.be/dZsbJh-9TnU" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #B8CCEA; text-decoration: none">O vídeo não carregou? Assistir no YouTube<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></a></div>
+    </sc-if>
+    <sc-if value="{{showCover}}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{play}}" aria-label="Assistir a aula" class="np-player" style="aspect-ratio: 16 / 9; width: 100%; border-radius: 24px; padding: 0; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,8,30,0.35); position: relative; display: flex; align-items: center; justify-content: center; font-family: inherit; color: #FFFFFF">
+        <span style="position: absolute; left: 32px; bottom: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: #DCE7F7">AULA 3 · DEPARTAMENTO PESSOAL</span>
+          <span style="font-family: Poppins, system-ui, sans-serif; font-size: 32px; font-weight: 600; line-height: 1.05; letter-spacing: -0.4px">Do cartão ponto ao arquivo da folha</span>
+        </span>
+        <span style="position: absolute; right: 24px; bottom: 24px; padding: 5px 10px; border-radius: 8px; background: rgba(0,0,0,0.35); font-size: 12px">18 min</span>
+        <span style="width: 88px; height: 88px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 16px rgba(255,255,255,0.15)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#6431E2" aria-hidden="true"><path d="M7 4v16l13-8z"></path></svg>
+        </span>
+      </button>
+    </sc-if>
+
+    <!-- Informações -->
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px">
+        <span style="padding: 6px 12px; border-radius: 999px; background: #FFE800; color: #002D72; font-weight: 600">DP</span>
+        <span style="padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1)">18 min</span>
+        <span style="padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1)">Claude + MCP do Nibo</span>
+      </div>
+      <h1 style="margin: 0; font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: clamp(30px, 3vw, 42px); line-height: 1.05; font-weight: 400; max-width: 820px">Do cartão ponto ao arquivo da folha</h1>
+      <p style="margin: 0; max-width: 820px; font-size: 16px; line-height: 1.7; color: #DCE7F7">Carlos Luvisetto pega o espelho de ponto de um funcionário e, com o Claude, apura a jornada com as regras da convenção. Depois, gera o arquivo no layout do sistema de folha, com um espelho de conferência linha a linha. No fim, salva tudo como a skill ponto-para-folha e, pelo MCP, cria a tarefa no Nibo com o arquivo anexado para o analista de DP.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <sc-if value="{{seen}}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{toggleSeen}}" class="ep-seen" aria-label="Aula assistida. Clique para desmarcar" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(61,220,151,0.55); background: rgba(61,220,151,0.14); color: #7CF0BE; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Aula assistida</button>
+        </sc-if>
+        <sc-if value="{{notSeen}}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{toggleSeen}}" class="ep-seen" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Marcar como assistida</button>
+        </sc-if>
+        <span style="font-size: 13px; color: #9FB3D6">Clique num capítulo para ir direto ao trecho.</span>
+      </div>
+    </div>
+
+    <!-- Capítulos -->
+    <section style="display: flex; flex-direction: column; gap: 0">
+      <h2 style="margin: 0 0 8px 0; font-family: Poppins, system-ui, sans-serif; font-size: 22px; line-height: 1.2; font-weight: 600; letter-spacing: -0.2px">Nesta aula</h2>
+      <sc-for list="{{capitulos}}" as="cap" hint-placeholder-count="12">
+        <button type="button" onClick="{{cap.go}}" aria-label="Assistir a partir de {{cap.t}}: {{cap.titulo}}" class="ep-cap" style="display: flex; align-items: center; gap: 16px; width: calc(100% + 24px); min-height: 44px; box-sizing: border-box; margin: 0 -12px; padding: 10px 12px; border: 0; border-radius: 12px; background: transparent; color: #FFFFFF; font-family: inherit; text-align: left; cursor: pointer">
+          <span class="ep-cap-t" style="flex: 0 0 auto; font-size: 13px; font-weight: 600; color: #DCE7F7; font-variant-numeric: tabular-nums">{{cap.t}}</span>
+          <span style="flex: 1 1 auto; min-width: 0; font-size: 15px; line-height: 1.45">{{cap.titulo}}</span>
+          <span class="ep-cap-p" aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #FFE800; color: #002D72; display: flex; align-items: center; justify-content: center"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></span>
+        </button>
+      </sc-for>
+    </section>
+  </main><aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; width: 321px">
+
+    <!-- Material -->
+    <section style="border-radius: 24px; padding: 28px; background: linear-gradient(160deg, #6431E2 0%, #002D72 110%); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,8,30,0.35); display: flex; flex-direction: column; gap: 14px">
+      <span style="align-self: flex-start; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.1); font-size: 11px; font-weight: 600; letter-spacing: 1.5px">MATERIAL DA AULA</span>
+      <h2 style="margin: 0; font-size: 18px; line-height: 1.35; font-weight: 600">Os prompts e o passo a passo da aula</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #E4DBFB">As 5 etapas, os prompts prontos para colar e o checklist antes de importar na folha. Livre para baixar, sem cadastro.</p>
+      <a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-3-dp.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; border-radius: 999px; background: #FFE800; color: #002D72; text-decoration: none; font-size: 15px; font-weight: 600">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#002D72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+        Baixar material
+      </a>
+    </section>
+
+
+    <!-- Próxima aula -->
+    <a href="/aulas/societario" style="border-radius: 24px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,8,30,0.35); text-decoration: none; color: #FFFFFF; display: flex; align-items: center; gap: 20px">
+      <span style="flex: 0 0 148px; height: 112px; box-sizing: border-box; border-radius: 14px; padding: 14px 16px; background: linear-gradient(180deg, rgba(1,15,39,0) 40%, rgba(1,15,39,0.92) 100%), url(/assets/thumb-societario.jpg) 56% 20% / cover no-repeat; display: flex; align-items: flex-end">
+        <span style="font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.05; letter-spacing: -0.3px">Societário</span>
+      </span>
+      <span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.2px; color: #DCE7F7">PRÓXIMA AULA · AULA 4</span>
+        <span style="font-size: 18px; line-height: 1.35; font-weight: 600">Do WhatsApp à minuta do contrato</span>
+      </span>
+    </a>
+
+    <!-- Parceria -->
+    <section style="border-radius: 24px; padding: 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,8,30,0.35); display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; font-size: 22px; line-height: 1.1; font-weight: 400">Parceria Nibo + A Fonte</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #DCE7F7">Cursos, conteúdo novo toda semana e grupo de membros, com condições especiais para usuários Nibo.</p>
+      <a href="https://lp.afonte.ia.br/" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: linear-gradient(135deg, #6431E2 0%, #6431E2 35%, #002D72 130%); color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Conhecer a comunidade</a>
+      <a href="https://lp.afonte.ia.br/" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5); color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Participar das Quartas, grátis</a>
+    </section>
+  </aside>
+</div>
+</div>
+</template>
+<script src="/js/preact.min.js"></script>
+<script src="/js/dc-runtime.js"></script>
+<script>
+const VID = 'dZsbJh-9TnU';
+const SEEN_KEY = 'niboPlay.assistidos';
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { playing: false, start: 0, seen: this.readSeen().indexOf(VID) > -1 };
+  }
+  // Progresso salvo no navegador (mesma chave da plataforma)
+  readSeen() { try { const a = JSON.parse(window.localStorage.getItem(SEEN_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  setSeen(on) {
+    const list = this.readSeen().filter((x) => x !== VID);
+    if (on) list.push(VID);
+    try { window.localStorage.setItem(SEEN_KEY, JSON.stringify(list)); } catch (e) {}
+    this.setState({ seen: on });
+  }
+  playAt(sec) {
+    this.setSeen(true);
+    this.setState({ playing: true, start: sec });
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+  }
+  renderVals() {
+    const capitulos = [
+      ['00:00', 'Abertura'],
+      ['02:20', 'As 5 etapas: do cartão ponto ao arquivo da folha'],
+      ['02:55', 'Etapa 1: a IA lê o espelho de ponto e a escala'],
+      ['05:35', 'Etapa 2: a apuração com as regras da convenção'],
+      ['08:15', 'Critérios, apuração dia a dia e totais do mês'],
+      ['09:20', 'Etapa 3: o arquivo de importação da folha'],
+      ['10:45', 'O espelho de conferência de cada linha'],
+      ['11:50', 'Etapa 4: a skill ponto-para-folha'],
+      ['13:55', 'Salvando e instalando a skill'],
+      ['14:45', 'Etapa 5: a tarefa no Nibo pelo MCP'],
+      ['16:45', 'A tarefa criada, com o arquivo anexado'],
+      ['17:05', 'Encerramento']
+    ].map(([t, titulo], i) => {
+      const [mm, ss] = t.split(':').map(Number);
+      return { n: String(i + 1), t, titulo, go: () => this.playAt(mm * 60 + ss) };
+    });
+    return {
+      capitulos,
+      showVideo: this.state.playing,
+      showCover: !this.state.playing,
+      play: () => this.playAt(0),
+      videoSrc: 'https://www.youtube-nocookie.com/embed/' + VID + '?autoplay=1&rel=0&modestbranding=1&playsinline=1' + (this.state.start ? '&start=' + this.state.start : ''),
+      seen: this.state.seen,
+      notSeen: !this.state.seen,
+      toggleSeen: () => this.setSeen(!this.state.seen)
+    };
+  }
+}
+
+NiboDC.mount(Component);
+
+</script>
+</body>
+</html>

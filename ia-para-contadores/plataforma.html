@@ -10,13 +10,21 @@
 <meta property="og:site_name" content="Nibo Play">
 <meta property="og:title" content="Nibo Play · Plataforma do curso de IA para contadores">
 <meta property="og:description" content="Aulas por setor, vídeos curtos de Claude e ChatGPT e materiais com os prompts para usar IA no escritório contábil.">
-<meta property="og:image" content="https://www.play.nibo.com.br/ia-para-contadores/assets/hero-poster.jpg">
+<link rel="canonical" href="https://www.play.nibo.com.br/ia-para-contadores/plataforma">
+<meta property="og:url" content="https://www.play.nibo.com.br/ia-para-contadores/plataforma">
+<meta property="og:image" content="https://www.play.nibo.com.br/ia-para-contadores/og-nibo-play.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nibo Play: curso gratuito de IA para contadores">
+<meta name="twitter:image" content="https://www.play.nibo.com.br/ia-para-contadores/og-nibo-play.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#021E49">
 <link rel="icon" href="/ia-para-contadores/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/ia-para-contadores/fonts/roca-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'RocaOne-Rg';src:url("/ia-para-contadores/fonts/roca-regular.woff2") format('woff2');font-weight:400;font-style:normal;font-display:swap}
 body{margin:0;background:#010F27}
 a{color:#41B6E6}a:hover{color:#FFFFFF}
 .v2-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
@@ -188,6 +196,8 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
   .v2-top{flex:none !important}
   .v2-num,.v2-pl,.v2-prev,.v2-md,.v2-mp{display:none !important}
   .v2-top:has(.v2-off){display:none !important}
+  .v2-top-wide{grid-column:1/-1}
+  .v2-top-wide .v2-thumb{aspect-ratio:16/9}
   .v2-ma{display:flex !important;margin-top:8px}
   .v2-card:hover,.v2-card:focus-within{transform:none}
   .v2-info{left:10px;right:10px;bottom:10px}
@@ -232,9 +242,9 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
       <h1 class="v2-h1" style="margin: 18px 0px 0px; font-family: RocaOne-Rg, &quot;Roca One&quot;, Fraunces, Georgia, serif; font-size: 60px; line-height: 1.02; font-weight: 400; letter-spacing: -1px;">IA no seu escritório contábil, aula por aula</h1>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 18px; font-size: 14px; color: rgb(220, 231, 247);">
         <span style="padding: 3px 10px; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; font-size: 12px; font-weight: 600;">GRÁTIS</span>
-        <span>4 aulas por setor + Financeiro em breve</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
+        <span>5 aulas por setor</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
       </div>
-      <p style="margin: 16px 0px 0px; font-size: 17px; line-height: 1.6; color: rgb(220, 231, 247); max-width: 540px;">Do PGDAS ao contrato social: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
+      <p style="margin: 16px 0px 0px; font-size: 17px; line-height: 1.6; color: rgb(220, 231, 247); max-width: 540px;">Do PGDAS ao caixa do cliente: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
       <p style="margin: 12px 0px 0px; font-size: 14px; color: rgb(159, 179, 214);">Com Carlos Luvisetto e Mauro Juliani</p>
       
       <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;">
@@ -294,7 +304,6 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
         <div class="v2-thumb ">
           <img src="/ia-para-contadores/assets/vert-contabil.jpg" alt="" class="v2-img">
           <img src="/ia-para-contadores/assets/prev-contabil.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
-          <span class="v2-new">NOVA</span>
           <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
           <a href="/ia-para-contadores/aulas/contabil" class="v2-cover-link" aria-hidden="true" tabindex="-1"></a>
           <span class="v2-info">
@@ -343,9 +352,24 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
           </span>
         </div>
       </div></div>
-<div class="v2-top"><span class="v2-num" aria-hidden="true">5</span>
-      <div class="v2-card v2-off"><div class="v2-thumb v2-locked"><span class="v2-lk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span>
-        <span class="v2-info"><span class="v2-k">AULA 5</span><span class="v2-s">Financeiro</span><span class="v2-md">Em produção. Avisamos quando estrear.</span></span></div></div></div>
+<div class="v2-top v2-top-wide"><span class="v2-num" aria-hidden="true">5</span>
+      <div class="v2-card">
+        <div class="v2-thumb ">
+          <picture><source media="(max-width: 720px)" srcset="/ia-para-contadores/assets/thumb-financeiro.jpg"><img src="/ia-para-contadores/assets/vert-financeiro.jpg" alt="" class="v2-img"></picture>
+          <img src="/ia-para-contadores/assets/prev-financeiro.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          <span class="v2-new">NOVA</span>
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <a href="/ia-para-contadores/aulas/financeiro" class="v2-cover-link" aria-hidden="true" tabindex="-1"></a>
+          <span class="v2-info">
+            <span class="v2-k">AULA 5 · 26 min</span>
+            <span class="v2-s">Financeiro</span>
+            <span class="v2-mt">Bom dia, financeiro: o caixa do cliente</span>
+            <span class="v2-md">O caixa do cliente de BPO toda manhã: a IA lê o Nibo Gestão Financeira, monta o resumo e o painel e entrega na hora agendada.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/ia-para-contadores/aulas/financeiro" class="v2-btn v2-btn-y" aria-label="Assistir aula 5: Financeiro"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-5-financeiro.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
       </div>
     </section>
 
@@ -412,7 +436,7 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
           <span style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Fraunces, Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.12;">Continue aprendendo IA com a Comunidade A Fonte</span>
           <span style="font-size: 13.5px; line-height: 1.5; color: rgb(201, 214, 236);">Cursos com certificado e lives gratuitas às quartas, das 9h às 12h. Condições especiais para usuários Nibo.</span>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px;"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-g">Quartas grátis</a></div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a></div>
       </div>
     </section>
 
@@ -459,9 +483,9 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
       <h1 class="v2-h1" style="margin: 18px 0 0 0; font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 60px; line-height: 1.02; font-weight: 400; letter-spacing: -1px">IA no seu escritório contábil, aula por aula</h1>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 18px; font-size: 14px; color: #DCE7F7">
         <span style="padding: 3px 10px; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; font-size: 12px; font-weight: 600">GRÁTIS</span>
-        <span>4 aulas por setor + Financeiro em breve</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
+        <span>5 aulas por setor</span><span aria-hidden="true">·</span><span>18 vídeos curtos</span><span aria-hidden="true">·</span><span>Material livre</span>
       </div>
-      <p style="margin: 16px 0 0 0; font-size: 17px; line-height: 1.6; color: #DCE7F7; max-width: 540px">Do PGDAS ao contrato social: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
+      <p style="margin: 16px 0 0 0; font-size: 17px; line-height: 1.6; color: #DCE7F7; max-width: 540px">Do PGDAS ao caixa do cliente: veja contadores usando o Claude e o MCP do Nibo em tarefas reais de cada setor. Sem programar, com os prompts prontos para copiar.</p>
       <p style="margin: 12px 0 0 0; font-size: 14px; color: #9FB3D6">Com Carlos Luvisetto e Mauro Juliani</p>
       <sc-if value="{{prog.none}}" hint-placeholder-val="{{ true }}">
       <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px">
@@ -544,7 +568,6 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
         <div class="v2-thumb {{seenCls.contabil}}"><sc-if value="{{seen.contabil}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
           <img src="/ia-para-contadores/assets/vert-contabil.jpg" alt="" class="v2-img">
           <img src="/ia-para-contadores/assets/prev-contabil.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
-          <span class="v2-new">NOVA</span>
           <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
           <a href="/ia-para-contadores/aulas/contabil" class="v2-cover-link" aria-hidden="true" tabindex="-1"></a>
           <span class="v2-info">
@@ -593,9 +616,24 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
           </span>
         </div>
       </div></div>
-<div class="v2-top"><span class="v2-num" aria-hidden="true">5</span>
-      <div class="v2-card v2-off"><div class="v2-thumb v2-locked"><span class="v2-lk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span>
-        <span class="v2-info"><span class="v2-k">AULA 5</span><span class="v2-s">Financeiro</span><span class="v2-md">Em produção. Avisamos quando estrear.</span></span></div></div></div>
+<div class="v2-top v2-top-wide"><span class="v2-num" aria-hidden="true">5</span>
+      <div class="v2-card">
+        <div class="v2-thumb {{seenCls.financeiro}}"><sc-if value="{{seen.financeiro}}" hint-placeholder-val="{{ false }}"><span class="v2-seen" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Assistida</span></sc-if>
+          <picture><source media="(max-width: 720px)" srcset="/ia-para-contadores/assets/thumb-financeiro.jpg"><img src="/ia-para-contadores/assets/vert-financeiro.jpg" alt="" class="v2-img"></picture>
+          <img src="/ia-para-contadores/assets/prev-financeiro.webp" alt="" aria-hidden="true" class="v2-img v2-prev">
+          <span class="v2-new">NOVA</span>
+          <span class="v2-pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span>
+          <a href="/ia-para-contadores/aulas/financeiro" class="v2-cover-link" aria-hidden="true" tabindex="-1"></a>
+          <span class="v2-info">
+            <span class="v2-k">AULA 5 · 26 min</span>
+            <span class="v2-s">Financeiro</span>
+            <span class="v2-mt">Bom dia, financeiro: o caixa do cliente</span>
+            <span class="v2-md">O caixa do cliente de BPO toda manhã: a IA lê o Nibo Gestão Financeira, monta o resumo e o painel e entrega na hora agendada.</span>
+            <span class="v2-mp">Com Carlos Luvisetto</span>
+            <span class="v2-ma"><a href="/ia-para-contadores/aulas/financeiro" class="v2-btn v2-btn-y" aria-label="Assistir aula 5: Financeiro"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Assistir</a><a href="https://1554114.fs1.hubspotusercontent-na1.net/hubfs/1554114/%5Bconte%C3%BAdos%5D%20Marketing%20-%20Contador/Curso%20de%20IA%20para%20contadores-%20materiais/nibo-play-aula-5-financeiro.pdf" target="_blank" rel="noopener" class="v2-btn v2-btn-g" aria-label="Material da aula 5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>Material</a></span>
+          </span>
+        </div>
+      </div></div>
       </div>
     </section>
 
@@ -644,7 +682,7 @@ a{color:#41B6E6}a:hover{color:#FFFFFF}
           <span style="font-family: 'RocaOne-Rg', 'Roca One', 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.12">Continue aprendendo IA com a Comunidade A Fonte</span>
           <span style="font-size: 13.5px; line-height: 1.5; color: #C9D6EC">Cursos com certificado e lives gratuitas às quartas, das 9h às 12h. Condições especiais para usuários Nibo.</span>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-g">Quartas grátis</a></div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px"><a href="https://lp.afonte.ia.br/" class="v2-btn v2-btn-y">Conhecer a comunidade</a></div>
       </div>
     </section>
 
@@ -757,7 +795,8 @@ const EPS = [
   { k: 'fiscal', id: 'qJQJcHYiydM', t: 'Aula 1 · Fiscal', href: '/ia-para-contadores/aulas/fiscal' },
   { k: 'contabil', id: 'NxHKPeS0gtM', t: 'Aula 2 · Contábil', href: '/ia-para-contadores/aulas/contabil' },
   { k: 'dp', id: 'dZsbJh-9TnU', t: 'Aula 3 · DP', href: '/ia-para-contadores/aulas/dp' },
-  { k: 'societario', id: 'Kxnx7axo9ZE', t: 'Aula 4 · Societário', href: '/ia-para-contadores/aulas/societario' }
+  { k: 'societario', id: 'Kxnx7axo9ZE', t: 'Aula 4 · Societário', href: '/ia-para-contadores/aulas/societario' },
+  { k: 'financeiro', id: '4KVlYVh4rvE', t: 'Aula 5 · Financeiro', href: '/ia-para-contadores/aulas/financeiro' }
 ];
 class Component extends DCLogic {
   constructor(props) {

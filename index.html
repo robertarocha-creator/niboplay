@@ -57,6 +57,8 @@ summary::-webkit-details-marker{display:none}
 .np-float{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 9px;border-radius:14px;background:rgba(255,255,255,.96);color:#002D72;box-shadow:0 18px 40px rgba(0,8,30,.45);font-size:12px;font-weight:600;line-height:1.3}
 .np-float-ic{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FFE800;flex:0 0 auto}
 .np-ins-col{position:relative;z-index:1}
+.np-ins::before{content:'';position:absolute;right:0;bottom:0;z-index:0;width:calc(min(580px, 44vw) * 2.296);height:min(580px, 44vw);background:url("/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg") right bottom / contain no-repeat;pointer-events:none;-webkit-mask-image:linear-gradient(to right, transparent 0, #000 38%),linear-gradient(to bottom, transparent 0, #000 24%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0, #000 38%),linear-gradient(to bottom, transparent 0, #000 24%);mask-composite:intersect}
+.np-ins > div{position:relative;z-index:1}
 .ls-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding-top:12px}
 .ls-top{display:flex;align-items:flex-end;min-width:0}
 .ls-num{flex:0 0 auto;font-weight:800;font-size:128px;line-height:.78;letter-spacing:-8px;color:transparent;-webkit-text-stroke:2.5px rgba(159,179,214,.55);margin-right:-26px;width:.6em;text-align:center;user-select:none}
@@ -93,7 +95,31 @@ summary::-webkit-details-marker{display:none}
   .ls-num{font-size:104px !important;margin-right:-22px !important}
 }
 @media (max-width:1199px){.np-h1{max-width:520px}.np-hero-col{flex-basis:440px !important}}
-@media (max-width:979px){.np-hero-row{flex-wrap:wrap}.np-mock{justify-content:center}.np-ins{background:url("/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg") center bottom / auto 400px no-repeat,#021E49 !important}.np-ins > div{padding-bottom:420px !important}}
+@media (max-width:979px){.np-hero-row{flex-wrap:wrap}.np-mock{justify-content:center}.np-ins::before{display:none}}
+
+@media (hover:none),(max-width:979px){.np-hint-hover{display:none !important}}
+@media (max-width:720px){
+  section:not(#inscricao){padding-top:56px !important;padding-bottom:56px !important}
+  #inscricao > div{padding-top:56px !important;padding-bottom:56px !important}
+  .ls-grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important;overflow:visible !important;padding-bottom:0 !important}
+  .ls-top{flex:none !important;display:block !important}
+  .ls-num,.ls-pl,.ls-prev,.ls-top-lock{display:none !important}
+  .ls-card{border-radius:14px}
+  .ls-info{left:10px;right:10px;bottom:10px}
+  .ls-k{font-size:9.5px;letter-spacing:1px}
+  .ls-s{font-size:18px}
+  .ls-t{font-size:11.5px}
+  .ls-new{right:8px;top:8px;padding:3px 8px;font-size:10px}
+  .np-ia-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+  .np-ia-grid > div{padding:14px !important;gap:10px !important;border-radius:16px !important}
+  .np-ia-grid > div > span:first-child{font-size:12.5px !important;line-height:1.35}
+  .np-ia-grid > div > span:last-child{padding:10px 12px !important;font-size:13px !important;line-height:1.4 !important}
+  .np-prof{grid-template-columns:minmax(0,1fr) !important;gap:12px !important}
+  .np-prof > div{flex-wrap:nowrap !important;align-items:flex-start !important;padding:18px !important;gap:14px !important;border-radius:18px !important}
+  .np-prof > div > img{flex:0 0 76px !important;width:76px !important}
+  .np-prof h3{font-size:17px !important}
+  .np-prof p{font-size:13px !important;line-height:1.5 !important}
+}
 </style>
 <link rel="stylesheet" href="/site.css">
 </head>
@@ -249,14 +275,14 @@ summary::-webkit-details-marker{display:none}
       <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Uma aula para cada setor do escritório</h2>
       <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: rgb(220, 231, 247);">Carlos Luvisetto e Mauro Juliani resolvem uma dor real de cada setor, do arquivo do cliente ao resultado pronto, e deixam o processo salvo para repetir todo mês.</p>
     </div>
-    <span style="font-size: 13px; color: rgb(159, 179, 214);">Passe o mouse para ver a prévia</span>
+    <span class="np-hint-hover" style="font-size: 13px; color: rgb(159, 179, 214);">Passe o mouse para ver a prévia</span>
     </div>
     <div class="ls-grid">
       <div class="ls-top"><span class="ls-num" aria-hidden="true">1</span><a href="#inscricao" class="ls-card" aria-label="Aula 1, Fiscal: Do PGDAS ao relatório consultivo, 31 min"><img src="/assets/vert-fiscal.jpg" alt=""><img src="/assets/prev-fiscal.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 1 · 31 MIN</span><span class="ls-s">Fiscal</span><span class="ls-t">Do PGDAS ao relatório consultivo</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">2</span><a href="#inscricao" class="ls-card" aria-label="Aula 2, Contábil: Do balancete ao painel do empresário, 37 min"><img src="/assets/vert-contabil.jpg" alt=""><img src="/assets/prev-contabil.webp" alt="" class="ls-prev"><span class="ls-new">NOVA</span><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 2 · 37 MIN</span><span class="ls-s">Contábil</span><span class="ls-t">Do balancete ao painel do empresário</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">3</span><a href="#inscricao" class="ls-card" aria-label="Aula 3, DP: Do cartão ponto ao arquivo da folha, 18 min"><img src="/assets/vert-dp.jpg" alt=""><img src="/assets/prev-dp.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 3 · 18 MIN</span><span class="ls-s">DP</span><span class="ls-t">Do cartão ponto ao arquivo da folha</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">4</span><a href="#inscricao" class="ls-card" aria-label="Aula 4, Societário: Do WhatsApp à minuta do contrato, 28 min"><img src="/assets/vert-societario.jpg" alt=""><img src="/assets/prev-societario.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 4 · 28 MIN</span><span class="ls-s">Societário</span><span class="ls-t">Do WhatsApp à minuta do contrato</span></span></a></div>
-      <div class="ls-top"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0px; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: rgb(201, 214, 236); font-weight: 500;">Em produção</span></span></div></div>
+      <div class="ls-top ls-top-lock"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0px; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgb(220, 231, 247);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: rgb(201, 214, 236); font-weight: 500;">Em produção</span></span></div></div>
     </div>
   </div>
 </section><section style="padding: 104px 24px; background: rgb(255, 255, 255);">
@@ -266,7 +292,7 @@ summary::-webkit-details-marker{display:none}
       <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">Peça à IA o que hoje você faz clicando no Nibo</h2>
       <p style="margin: 0px; font-size: 17px; line-height: 1.7; color: rgb(58, 74, 102);">Conecte o Nibo Contador ao Claude ou ao ChatGPT uma vez e peça em português: a IA consulta e faz no Nibo por você, com o seu acesso.</p>
     </div>
-    <div style="flex: 1 1 560px; min-width: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+    <div class="np-ia-grid" style="flex: 1 1 560px; min-width: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
       <div style="border-radius: 20px; padding: 24px; border: 1px solid rgb(214, 228, 247); display: flex; flex-direction: column; gap: 14px;">
         <span style="font-size: 14px; font-weight: 600; color: rgb(0, 114, 206);">Cadastrar clientes de uma planilha</span>
         <span style="background: rgb(236, 244, 255); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5;">“Cadastre os clientes desta planilha no Nibo.”</span>
@@ -291,7 +317,7 @@ summary::-webkit-details-marker{display:none}
 <section style="padding: 96px 24px; background: rgb(236, 244, 255);">
   <div style="max-width: 1200px; margin: 0px auto; display: flex; flex-direction: column; gap: 40px;">
     <h2 style="font-family: RocaOne-Rg, &quot;Roca One&quot;, Roca, Fraunces, Georgia, serif; margin: 0px; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px;">De contador para contador</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+    <div class="np-prof" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
       <div style="background: rgb(255, 255, 255); border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
         <img src="/assets/img-47a8c39fc4ec1240c9b825577c1d1129.png" alt="Carlos Luvisetto" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block;">
         <div style="flex: 1 1 220px; min-width: 0px; display: flex; flex-direction: column; gap: 8px;">
@@ -313,7 +339,7 @@ summary::-webkit-details-marker{display:none}
 </section>
 
 
-<section id="inscricao" class="np-ins" style="padding: 0px 24px; color: rgb(255, 255, 255); background: linear-gradient(rgb(2, 30, 73) 0px, rgba(2, 30, 73, 0) 160px) right bottom / 100% min(560px, 44vw) no-repeat, url(&quot;/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg&quot;) right max(0px, -720px + 50vw) bottom / auto min(560px, 44vw) no-repeat, radial-gradient(640px 480px at 80% 70%, rgba(100, 49, 226, 0.35) 0%, rgba(100, 49, 226, 0) 70%), rgb(2, 30, 73);">
+<section id="inscricao" class="np-ins" style="position: relative; overflow: hidden; padding: 0px 24px; color: rgb(255, 255, 255); background: radial-gradient(640px 480px at 80% 70%, rgba(100, 49, 226, 0.35) 0%, rgba(100, 49, 226, 0) 70%), rgb(2, 30, 73);">
   <div style="max-width: 1200px; margin: 0px auto; padding: 64px 0px;">
     <div class="np-ins-col" style="max-width: 600px; display: flex; flex-direction: column; gap: 22px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
@@ -511,14 +537,14 @@ summary::-webkit-details-marker{display:none}
       <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Uma aula para cada setor do escritório</h2>
       <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #DCE7F7">Carlos Luvisetto e Mauro Juliani resolvem uma dor real de cada setor, do arquivo do cliente ao resultado pronto, e deixam o processo salvo para repetir todo mês.</p>
     </div>
-    <span style="font-size: 13px; color: #9FB3D6">Passe o mouse para ver a prévia</span>
+    <span class="np-hint-hover" style="font-size: 13px; color: #9FB3D6">Passe o mouse para ver a prévia</span>
     </div>
     <div class="ls-grid">
       <div class="ls-top"><span class="ls-num" aria-hidden="true">1</span><a href="{{aula.fiscal}}" class="ls-card" aria-label="Aula 1, Fiscal: Do PGDAS ao relatório consultivo, 31 min"><img src="/assets/vert-fiscal.jpg" alt=""><img src="/assets/prev-fiscal.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 1 · 31 MIN</span><span class="ls-s">Fiscal</span><span class="ls-t">Do PGDAS ao relatório consultivo</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">2</span><a href="{{aula.contabil}}" class="ls-card" aria-label="Aula 2, Contábil: Do balancete ao painel do empresário, 37 min"><img src="/assets/vert-contabil.jpg" alt=""><img src="/assets/prev-contabil.webp" alt="" class="ls-prev"><span class="ls-new">NOVA</span><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 2 · 37 MIN</span><span class="ls-s">Contábil</span><span class="ls-t">Do balancete ao painel do empresário</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">3</span><a href="{{aula.dp}}" class="ls-card" aria-label="Aula 3, DP: Do cartão ponto ao arquivo da folha, 18 min"><img src="/assets/vert-dp.jpg" alt=""><img src="/assets/prev-dp.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 3 · 18 MIN</span><span class="ls-s">DP</span><span class="ls-t">Do cartão ponto ao arquivo da folha</span></span></a></div>
       <div class="ls-top"><span class="ls-num" aria-hidden="true">4</span><a href="{{aula.societario}}" class="ls-card" aria-label="Aula 4, Societário: Do WhatsApp à minuta do contrato, 28 min"><img src="/assets/vert-societario.jpg" alt=""><img src="/assets/prev-societario.webp" alt="" class="ls-prev"><span class="ls-pl" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg>Prévia</span><span class="ls-info"><span class="ls-k">AULA 4 · 28 MIN</span><span class="ls-s">Societário</span><span class="ls-t">Do WhatsApp à minuta do contrato</span></span></a></div>
-      <div class="ls-top"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: #DCE7F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: #C9D6EC; font-weight: 500">Em produção</span></span></div></div>
+      <div class="ls-top ls-top-lock"><span class="ls-num" aria-hidden="true">5</span><div class="ls-card ls-lock" aria-label="Aula 5, Financeiro: em breve"><span style="position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: #DCE7F7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Em breve</span></span><span class="ls-info"><span class="ls-k">AULA 5</span><span class="ls-s">Financeiro</span><span class="ls-t" style="color: #C9D6EC; font-weight: 500">Em produção</span></span></div></div>
     </div>
   </div>
 </section><section style="padding: 104px 24px; background: #FFFFFF">
@@ -528,7 +554,7 @@ summary::-webkit-details-marker{display:none}
       <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">Peça à IA o que hoje você faz clicando no Nibo</h2>
       <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A4A66">Conecte o Nibo Contador ao Claude ou ao ChatGPT uma vez e peça em português: a IA consulta e faz no Nibo por você, com o seu acesso.</p>
     </div>
-    <div style="flex: 1 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
+    <div class="np-ia-grid" style="flex: 1 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
       <div style="border-radius: 20px; padding: 24px; border: 1px solid #D6E4F7; display: flex; flex-direction: column; gap: 14px">
         <span style="font-size: 14px; font-weight: 600; color: #0072CE">Cadastrar clientes de uma planilha</span>
         <span style="background: #ECF4FF; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 15px; line-height: 1.5">“Cadastre os clientes desta planilha no Nibo.”</span>
@@ -553,7 +579,7 @@ summary::-webkit-details-marker{display:none}
 <section style="padding: 96px 24px; background: #ECF4FF">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
     <h2 style="font-family: 'RocaOne-Rg', 'Roca One', 'Roca', 'Fraunces', Georgia, serif; margin: 0; text-align: center; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.3px">De contador para contador</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+    <div class="np-prof" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
       <div style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
         <img src="/assets/img-47a8c39fc4ec1240c9b825577c1d1129.png" alt="Carlos Luvisetto" width="140" height="156" style="flex: 0 0 140px; width: 140px; height: auto; display: block">
         <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
@@ -575,7 +601,7 @@ summary::-webkit-details-marker{display:none}
 </section>
 
 <!-- 7. INSCRIÇÃO -->
-<section id="inscricao" class="np-ins" style="padding: 0 24px; color: #FFFFFF; background: linear-gradient(180deg, #021E49 0, rgba(2,30,73,0) 160px) right bottom / 100% min(560px, 44vw) no-repeat, url(&quot;/assets/img-3daa691c6cda12db7117d97ae5f8363c.jpg&quot;) right max(0px, calc(50vw - 720px)) bottom / auto min(560px, 44vw) no-repeat, radial-gradient(640px 480px at 80% 70%, rgba(100,49,226,0.35) 0%, rgba(100,49,226,0) 70%), #021E49">
+<section id="inscricao" class="np-ins" style="position: relative; overflow: hidden; padding: 0 24px; color: #FFFFFF; background: radial-gradient(640px 480px at 80% 70%, rgba(100,49,226,0.35) 0%, rgba(100,49,226,0) 70%), #021E49">
   <div style="max-width: 1200px; margin: 0 auto; padding: 64px 0 64px 0">
     <div class="np-ins-col" style="max-width: 600px; display: flex; flex-direction: column; gap: 22px">
       <div style="display: flex; flex-direction: column; gap: 16px">

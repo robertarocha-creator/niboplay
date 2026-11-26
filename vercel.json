@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/para-contadores",
+      "source": "/ia-para-contadores",
       "headers": [
         {
           "key": "Content-Type",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "source": "/para-contadores/index.html",
+      "source": "/ia-para-contadores/index.html",
       "headers": [
         {
           "key": "Content-Type",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "source": "/para-contadores/plataforma",
+      "source": "/ia-para-contadores/plataforma",
       "headers": [
         {
           "key": "Content-Type",
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "source": "/para-contadores/aulas/:path*",
+      "source": "/ia-para-contadores/aulas/:path*",
       "headers": [
         {
           "key": "Content-Type",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "source": "/para-contadores/site.css",
+      "source": "/ia-para-contadores/site.css",
       "headers": [
         {
           "key": "Content-Type",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "source": "/para-contadores/assets/(.*)",
+      "source": "/ia-para-contadores/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "source": "/para-contadores/js/(.*)",
+      "source": "/ia-para-contadores/js/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -82,17 +82,17 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/para-contadores",
+      "destination": "/ia-para-contadores",
       "permanent": false
     },
     {
       "source": "/plataforma",
-      "destination": "/para-contadores/plataforma",
+      "destination": "/ia-para-contadores/plataforma",
       "permanent": true
     },
     {
       "source": "/aulas/:path*",
-      "destination": "/para-contadores/aulas/:path*",
+      "destination": "/ia-para-contadores/aulas/:path*",
       "permanent": true
     }
   ]

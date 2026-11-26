@@ -19,19 +19,19 @@ Dentro desta pasta: `npx vercel --prod`
 
 | Página | Endereço |
 |---|---|
-| Landing page | `/` |
-| Plataforma | `/plataforma` |
-| Conecte o Nibo (MCP) | `/aulas/conecte-o-nibo` |
-| Aula 1 · Fiscal | `/aulas/fiscal` |
-| Aula 2 · Contábil | `/aulas/contabil` |
-| Aula 3 · DP | `/aulas/dp` |
-| Aula 4 · Societário | `/aulas/societario` |
-| Vídeo curto direto | `/plataforma#claude-1` … `#claude-8`, `#chatgpt-1` … `#chatgpt-8`, `#geral-1`, `#geral-2` |
+| Landing page | `/para-contadores` |
+| Plataforma | `/para-contadores/plataforma` |
+| Conecte o Nibo (MCP) | `/para-contadores/aulas/conecte-o-nibo` |
+| Aula 1 · Fiscal | `/para-contadores/aulas/fiscal` |
+| Aula 2 · Contábil | `/para-contadores/aulas/contabil` |
+| Aula 3 · DP | `/para-contadores/aulas/dp` |
+| Aula 4 · Societário | `/para-contadores/aulas/societario` |
+| Vídeo curto direto | `/para-contadores/plataforma#claude-1` … `#claude-8`, `#chatgpt-1` … `#chatgpt-8`, `#geral-1`, `#geral-2` |
 
 ## O que já está ligado
 
 - **Inscrição:** formulário do HubSpot "Marketing | Conteúdos - Contador Curso de IA para contadores"
-  (form `aa01c83e-e333-4c60-8f3a-688b3631685d`). Na landing page, depois do envio, leva para `/plataforma`
+  (form `aa01c83e-e333-4c60-8f3a-688b3631685d`). Na landing page, depois do envio, leva para `/para-contadores/plataforma`
   no mesmo domínio. No convite da plataforma (quem chega por link compartilhado), confirma sem sair da página.
   Configuração em `js/inscricao.js`.
 - **Vídeos:** 5 aulas e 18 vídeos curtos do YouTube (youtube-nocookie), com capítulos clicáveis nas aulas.
@@ -42,7 +42,7 @@ Dentro desta pasta: `npx vercel --prod`
 
 ## Depois de publicar, confira
 
-1. Envie o formulário uma vez e veja se o contato chega no HubSpot e se você cai em `/plataforma`.
+1. Envie o formulário uma vez e veja se o contato chega no HubSpot e se você cai em `/para-contadores/plataforma`.
 2. **Prévia em WhatsApp e redes:** as imagens de compartilhamento (`og:image`) estão com endereço relativo
    (`/assets/...`). WhatsApp e LinkedIn só mostram a imagem com o endereço completo. Quando o domínio
    estiver definido, troque `content="/assets/` por `content="https://SEU-DOMINIO/assets/` nos 7 arquivos .html.

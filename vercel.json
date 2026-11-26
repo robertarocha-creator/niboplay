@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/",
+      "source": "/para-contadores",
       "headers": [
         {
           "key": "Content-Type",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "source": "/index.html",
+      "source": "/para-contadores/index.html",
       "headers": [
         {
           "key": "Content-Type",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "source": "/plataforma",
+      "source": "/para-contadores/plataforma",
       "headers": [
         {
           "key": "Content-Type",
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "source": "/aulas/:path*",
+      "source": "/para-contadores/aulas/:path*",
       "headers": [
         {
           "key": "Content-Type",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "source": "/site.css",
+      "source": "/para-contadores/site.css",
       "headers": [
         {
           "key": "Content-Type",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/para-contadores/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -70,13 +70,30 @@
       ]
     },
     {
-      "source": "/js/(.*)",
+      "source": "/para-contadores/js/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/para-contadores",
+      "permanent": false
+    },
+    {
+      "source": "/plataforma",
+      "destination": "/para-contadores/plataforma",
+      "permanent": true
+    },
+    {
+      "source": "/aulas/:path*",
+      "destination": "/para-contadores/aulas/:path*",
+      "permanent": true
     }
   ]
 }

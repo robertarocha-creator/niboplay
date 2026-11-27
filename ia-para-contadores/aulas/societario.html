@@ -397,7 +397,7 @@ class Component extends DCLogic {
       showVideo: this.state.playing,
       showCover: !this.state.playing,
       play: () => this.playAt(0),
-      videoSrc: 'https://www.youtube-nocookie.com/embed/' + VID + '?autoplay=1&rel=0&modestbranding=1&playsinline=1' + (this.state.start ? '&start=' + this.state.start : ''),
+      videoSrc: 'https://www.youtube-nocookie.com/embed/' + VID + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=1&cc_lang_pref=pt&hl=pt-BR' + (this.state.start ? '&start=' + this.state.start : ''),
       seen: this.state.seen,
       notSeen: !this.state.seen,
       toggleSeen: () => this.setSeen(!this.state.seen)
